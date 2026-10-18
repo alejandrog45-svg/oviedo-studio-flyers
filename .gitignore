@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+firebase-config.js
+service-account*.json
+credentials*.json
+*.pem
+*.key
+.DS_Store
+__pycache__/
+*.pyc
+private-assets/
