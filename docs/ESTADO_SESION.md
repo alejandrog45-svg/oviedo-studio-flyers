@@ -60,3 +60,7 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Verificación por software: zxing-cpp decodifica el QR correcto en 16/16 PNG (manzano y padel × 4 plantillas × feed/historia). OpenCV es inconsistente según el fondo (no usarlo como criterio).
 - NO VERIFICADO: lectura con un teléfono real (regla 21 de las reglas globales lo exige antes de aprobar); sin insignia central.
 - Consola: 0 errores/avisos (favicon vacío en línea). Con CSP real sirviendo desde Cloudflare: OK.
+
+## CIERRE · producción (2026-10-19)
+- PR #1 fusionado a `main` (788c69d) por instrucción expresa del usuario. Producción https://oviedo-studio-flyers.pages.dev verificada: cabeceras CSP y QR presentes; prueba completa (4 plantillas × feed/historia, marca El Manzano + exportación Pádel) sin errores ni avisos de consola.
+- Pendiente del usuario: probar con fotos/logos oficiales de Drive cargados en el editor; probar el QR con un teléfono; ejecutar la prueba Banana en Flow (protocolo en FLOW_BANANA_PROTOCOLO.md); decidir retirar login heredado (web/index.html, main.js).
