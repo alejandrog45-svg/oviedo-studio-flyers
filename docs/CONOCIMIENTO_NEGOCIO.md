@@ -59,3 +59,9 @@ Activos originales ya copiados en Drive del proyecto (04_LOGOS_OFICIALES, copias
 - Logo Oviedo blanco: 04_LOGOS_OFICIALES. Alianza: wordmark Oviedo Expréss + círculo Padel Rocks (2 archivos).
 Ícono de ubicación: no existe original; el editor dibuja un pin genérico (no es logo de marca).
 Las fotos del hero se rellenan sin recortar casi nada; si la proporción exige recortar más del 15 % se muestra completa.
+
+## Logos Oviedo: blanco y negro (aclaración del usuario 2026-10-19)
+Se usan las dos versiones originales: **blanco** sobre fondos de color/oscuros (cabecera de la plantilla Aprobado, flyers rojo/negro/verde) y **negro** sobre fondos claros (placas blancas de las otras plantillas). El editor tiene un campo para cada una; si falta la negra sobre fondo claro, el QA lo avisa. El logo negro lo aportará el usuario (Drive); no se genera ni se recolorea el blanco.
+
+## Fotos originales adicionales (aportadas 2026-10-19; están en Drive del usuario)
+Fachada panorámica con PATIO CONSTRUCTOR, fachada vertical Sala de Ventas, vista aérea de la calle y sucursal, terraza Padel Rocks con food truck, escenario del aniversario (muestra GIFTCARD $30.000 en la foto: no usar sin confirmar que el dato sigue vigente), ferias con carpas de proveedores (aparecen personas y marcas de terceros: usar solo con autorización), banner Oviedo Express "Atendemos aquí", logo Padel Rocks 3D y QR del Canal. Fotos verticales caben completas en el hero con fondo desenfocado; para máximo impacto usar horizontales.
