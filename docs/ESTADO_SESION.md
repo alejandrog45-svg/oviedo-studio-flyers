@@ -40,3 +40,9 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Editor: selector de Marca (manzano, express, padel, alianza, feria) con WhatsApp/Instagram/Dirección editables y color de acento. Fuente por marca (Montserrat / Fraunces). El Manzano trae sus datos; las demás quedan vacías y el QA avisa. Ficha QA incluye marca, tipografía y contacto.
 - Probado local: 4 plantillas × 2 formatos exportan (marca El Manzano); las 4 marcas cargan su fuente (Fraunces verificado); exportación Pádel con datos de prueba OK; 0 errores.
 - NO VERIFICADO: colores verde/rosa exactos de Padel Rocks (requiere logo/reglas globales), logos de Express/Pádel, datos de contacto de otras marcas.
+
+## Datos de marca cargados desde Drive (2026-10-19)
+- BRANDS del editor usa datos oficiales (contacto, fuente, fondo y acento hex) de las reglas globales; QA por marca (Express: "Cotiza Oviedo Express"; Pádel/Alianza: logos originales, Fraunces, sin rojo). Acento Oviedo oficial #E1141E.
+- Verificado local: 5 marcas × 4 plantillas × 2 formatos sin texto desbordado; Pádel catálogo visualmente correcto (Fraunces, verde).
+- Instrucción del usuario: no pedir datos que ya están en Drive; buscar primero en Drive.
+- NO VERIFICADO: logos reales de Express/Padel Rocks en el editor (pendiente cargar archivos desde Drive); QR del Canal (no implementado en el editor).

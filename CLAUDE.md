@@ -9,6 +9,7 @@ Sin relación con PLAN_MAESTRO_OVIEDO.
 - Safe Change: declarar TOCO / RAZÓN / NO-TOCO antes de editar.
 - Ahorro de tokens (modo full): respuestas breves, no releer lo ya conocido, no descargar binarios grandes por MCP.
 - Antirretroceso: no revertir ni degradar lo verificado (ver `docs/ESTADO_SESION.md`); validar antes de commit.
+- Datos faltantes: buscar PRIMERO en Drive (solo lectura); no pedírselos al usuario.
 - Costo cero: no gastar créditos (Flow/Banana) ni contratar planes sin preguntar.
 - Marcar NO VERIFICADO lo no probado. Ninguna IA se declara integrada sin prueba real.
 - Nada se publica automáticamente; revisión humana antes de aprobar.
