@@ -22,7 +22,7 @@ const fy=v=>Math.round(H*v);
 // foto a sangre + degradados
 const heroH=fy(story?.62:.62);
 ctx.fillStyle='#0a0a0b';ctx.fillRect(0,0,W,H);
-if(I.photo){ctx.save();ctx.beginPath();ctx.rect(0,0,W,heroH);ctx.clip();ctx.filter='brightness(1.07) contrast(1.06) saturate(1.1)';cover(I.photo,0,0,W,heroH,O.focoX,O.photoY,Math.max(1,O.zoom/100));ctx.filter='none';ctx.restore()}else{ctx.fillStyle='#20242b';ctx.fillRect(0,0,W,heroH);txt('Carga una fotografía original',W/2,heroH/2-14,30,'#8b929e',{align:'center'});needs.push('Falta foto original.')}
+if(I.photo){ctx.save();ctx.beginPath();ctx.rect(0,0,W,heroH);ctx.clip();const up=Math.max(W/I.photo.width,heroH/I.photo.height)*Math.max(1,O.zoom/100);if(up>1.15)needs.push('Foto de baja resolución para esta plantilla (se amplía ×'+up.toFixed(2)+'): usa el original de mayor tamaño.');ctx.filter='brightness(1.07) contrast(1.06) saturate(1.1)';cover(I.photo,0,0,W,heroH,O.focoX,O.photoY,Math.max(1,O.zoom/100));ctx.filter='none';ctx.restore()}else{ctx.fillStyle='#20242b';ctx.fillRect(0,0,W,heroH);txt('Carga una fotografía original',W/2,heroH/2-14,30,'#8b929e',{align:'center'});needs.push('Falta foto original.')}
 let g=ctx.createLinearGradient(0,0,0,fy(.2));g.addColorStop(0,'rgba(0,0,0,.55)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,fy(.2));
 g=ctx.createLinearGradient(0,fy(.38),0,heroH+fy(.04));g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(.7,'rgba(8,8,9,.88)');g.addColorStop(1,'#0a0a0b');ctx.fillStyle=g;ctx.fillRect(0,fy(.38),W,heroH-fy(.38)+fy(.04));
 // placa de logo + etiqueta de sucursal
@@ -46,7 +46,7 @@ const cr=story?78:60,cy=fy(story?.765:.755)+(story?0:0),labs=T.cats;
 labs.forEach((l,i)=>{const cx=W*(2*i+1)/8;ctx.save();ctx.beginPath();ctx.arc(cx,cy,cr,0,Math.PI*2);ctx.closePath();ctx.clip();ctx.fillStyle='#1b1d22';ctx.fillRect(cx-cr,cy-cr,cr*2,cr*2);if(I.cats[i])cover(I.cats[i],cx-cr,cy-cr,cr*2,cr*2);ctx.restore();
 ctx.strokeStyle=red;ctx.lineWidth=story?9:7;ctx.beginPath();ctx.arc(cx,cy,cr,0,Math.PI*2);ctx.stroke();
 const parts=String(l).split('/');txt((parts[0]||'').trim(),cx,cy+cr+(story?18:14),story?28:23,'#ffffff',{align:'center',weight:900,maxW:240,min:16});txt((parts[1]||'').trim(),cx,cy+cr+(story?50:40),story?25:20,'#ffffff',{align:'center',weight:600,maxW:240,min:14})});
-if(I.cats.filter(Boolean).length<4)needs.push('Faltan fotos de categorías ('+I.cats.filter(Boolean).length+'/4).');
+if(I.cats.filter(Boolean).length<4)errors.push('Faltan fotos de categorías ('+I.cats.filter(Boolean).length+'/4): cárgalas antes de exportar; sin ellas los círculos quedan vacíos.');
 // onda roja
 const wy=fy(story?.862:.862);ctx.fillStyle=red;ctx.beginPath();ctx.moveTo(0,wy+30);ctx.bezierCurveTo(W*.25,wy-28,W*.6,wy+70,W,wy+8);ctx.lineTo(W,wy+46);ctx.bezierCurveTo(W*.6,wy+104,W*.25,wy+10,0,wy+62);ctx.closePath();ctx.fill();
 // contacto

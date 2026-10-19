@@ -103,3 +103,8 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 
 ## Prompt para Claude Code en PC (2026-10-19)
 - `docs/PROMPT_CLAUDE_CODE_PC.md`: prompt completo para clonar el proyecto en `W:\PROYECTOS CUENTA ALEJANDROG45\OVIEDO_STUDIO_FLYERS` sin tocar otros proyectos (revisa LEEME_RUTAS, INVENTARIO_ACCESOS y .gitconfig-alejandro, aplica ahorro de tokens, antirretroceso y blindaje). Rutas y nombres de carpetas del PC provienen de una captura del usuario: NO VERIFICADO desde la nube.
+
+## Auditoría de calidad con fotos reales (2026-10-19, PC)
+- Probado local con fachada (1536x709) y terraza pádel (1536x1152) del usuario (solo scratchpad, nada en el repo): 6 exportaciones, 0 errores de consola.
+- Defectos hallados y corregidos (rama `claude/calidad-export`): Conoce exportaba con 4 círculos de categoría vacíos -> ahora bloquea; Historia Aprobado exportaba con banda "Marcas confirmadas" vacía -> ahora bloquea (o desmarcar la banda); aviso de foto ampliada >x1.15 (la fachada panorámica se ampliaba x1.18 en Conoce).
+- NO VERIFICADO / PENDIENTE de decisión del usuario: (1) fotos de este PC miden 1536 px máx.: usar originales de Drive; (2) pieza Pádel usa logo Oviedo + cinta roja sobre verde: falta logo Padel Rocks y confirmar paleta de cinta; (3) Historia: logo (y≈40) y pie (y≈1863) caen dentro de los 250 px libres que exige CONOCIMIENTO_NEGOCIO; (4) texto "SUCURSAL EL MANZANO" aparece 2 veces en Aprobado (regla "un dato una sola vez").

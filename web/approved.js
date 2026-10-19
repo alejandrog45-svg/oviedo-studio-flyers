@@ -38,7 +38,7 @@ if(t2){const z2=txt(t2,W/2,y,B.s2*k,th.t2,{align:'center',weight:900,maxW:W-60,s
 // zona inferior oscura + hero + franja
 R(0,heroBot-26,W,stripH+26,th.dark);
 ctx.save();ctx.beginPath();ctx.moveTo(0,hdrH+16);ctx.lineTo(W,hdrH-14);ctx.lineTo(W,heroBot-24);ctx.lineTo(0,heroBot);ctx.closePath();ctx.clip();R(0,hdrH-14,W,heroBot-hdrH+14,'#0b0b0d');
-if(I.photo){const ht=hdrH-14,hh=heroBot-ht,kc=Math.max(W/I.photo.width,hh/I.photo.height),vis=(W/(I.photo.width*kc))*(hh/(I.photo.height*kc)),zm=(O.zoom||100)/100;if(O.cover||vis>=.85||zm>1){const k=kc*zm;ctx.drawImage(I.photo,(W-I.photo.width*k)*(O.focoX??.5),ht+(hh-I.photo.height*k)*O.photoY,I.photo.width*k,I.photo.height*k)}else{ctx.save();ctx.filter='blur(22px)';cover(I.photo,-30,ht-30,W+60,hh+60,.5);ctx.filter='none';R(0,ht,W,hh,'rgba(0,0,0,.45)');ctx.restore();contain(I.photo,0,ht,W,hh,O.photoY,O.photoScale)}}else{txt('Carga una fotografía original',W/2,(hdrH+heroBot)/2-14,30,'#8b929e',{align:'center'})}ctx.restore();
+if(I.photo){const ht=hdrH-14,hh=heroBot-ht,kc=Math.max(W/I.photo.width,hh/I.photo.height),vis=(W/(I.photo.width*kc))*(hh/(I.photo.height*kc)),zm=(O.zoom||100)/100;if(O.cover||vis>=.85||zm>1){const k=kc*zm;if(k>1.15)needs.push('Foto de baja resolución para esta plantilla (se amplía ×'+k.toFixed(2)+'): usa el original de mayor tamaño.');ctx.drawImage(I.photo,(W-I.photo.width*k)*(O.focoX??.5),ht+(hh-I.photo.height*k)*O.photoY,I.photo.width*k,I.photo.height*k)}else{ctx.save();ctx.filter='blur(22px)';cover(I.photo,-30,ht-30,W+60,hh+60,.5);ctx.filter='none';R(0,ht,W,hh,'rgba(0,0,0,.45)');ctx.restore();contain(I.photo,0,ht,W,hh,O.photoY,O.photoScale)}}else{txt('Carga una fotografía original',W/2,(hdrH+heroBot)/2-14,30,'#8b929e',{align:'center'})}ctx.restore();
 ctx.fillStyle=th.strip;ctx.beginPath();ctx.moveTo(0,heroBot+26);ctx.lineTo(W,heroBot);ctx.lineTo(W,heroBot+stripH);ctx.lineTo(0,heroBot+stripH);ctx.closePath();ctx.fill();
 // cinta inclinada
 if(T.ribbon){const rh=story?58:50,rz=story?26:22,tw=measure(T.ribbon,rz,900,'italic',1.5,F),rw=Math.min(W-60,tw+100),rx=(W-rw)/2,ry=hdrH-rh/2-4,dx=rh*.25;
@@ -48,7 +48,7 @@ txt(T.ribbon,W/2,ry+(rh-rz)/2+1,rz,'#ffffff',{align:'center',weight:900,style:'i
 // marcas
 if(marH){const my=heroBot+stripH;R(0,my,W,marH,'#ffffff');const dm=th.strip==='#f6a8c4'?'#e1141e':th.strip,mt=measure('MARCAS CONFIRMADAS',26,800,'normal',4,F);txt('MARCAS CONFIRMADAS',W/2+2,my+22,26,'#1b1b1f',{align:'center',weight:800,sp:4});txt('◆',W/2-mt/2-30,my+22,24,dm,{align:'center'});txt('◆',W/2+mt/2+34,my+22,24,dm,{align:'center'});
 const cw=(W-60)/7,bh=76,rows=[I.marcas.slice(0,7),I.marcas.slice(7,13)];rows.forEach((row,r)=>{const x0=(W-row.length*cw)/2;row.forEach((im,i)=>contain(im,x0+i*cw+10,my+72+r*(bh+16),cw-20,bh))});
-if(I.marcas.length<13)needs.push('Faltan logos de marcas confirmadas ('+I.marcas.length+'/13).')}
+if(!I.marcas.length)errors.push('Banda «Marcas confirmadas» vacía: carga los logos o desmarca «Mostrar banda de marcas».');else if(I.marcas.length<13)needs.push('Faltan logos de marcas confirmadas ('+I.marcas.length+'/13).')}
 // contacto
 const cg=ctx.createLinearGradient(0,0,W,0);cg.addColorStop(0,th.band1);cg.addColorStop(1,th.band2);ctx.fillStyle=cg;ctx.fillRect(0,conY,W,conH);
 const cy=conY+conH/2,ic=story?64:56;
