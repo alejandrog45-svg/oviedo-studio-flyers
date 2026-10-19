@@ -35,3 +35,8 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Corregido defecto previo: `textBlock` no partía líneas (`/\\s+/` → `/\s+/`). Títulos ahora se ajustan en varias líneas. Mensaje de error de texto largo ahora cita el texto.
 - Sección "Asistentes IA" (enlaces manuales Gemini, ChatGPT, Meta AI, Claude) + `docs/PUENTE_IA.md`. Solo Claude Code VERIFICADO; el resto acceso manual, sin API.
 - Usuario autorizó (19-10-2026) UNA prueba con Banana. **NO EJECUTADA**: Flow exige la sesión Google del usuario y esta sesión no tiene acceso. Ejecutar manualmente con "Preparar instrucciones" (plantilla Catálogo) y registrar resultado aquí.
+
+## Multi-marca (2026-10-19)
+- Editor: selector de Marca (manzano, express, padel, alianza, feria) con WhatsApp/Instagram/Dirección editables y color de acento. Fuente por marca (Montserrat / Fraunces). El Manzano trae sus datos; las demás quedan vacías y el QA avisa. Ficha QA incluye marca, tipografía y contacto.
+- Probado local: 4 plantillas × 2 formatos exportan (marca El Manzano); las 4 marcas cargan su fuente (Fraunces verificado); exportación Pádel con datos de prueba OK; 0 errores.
+- NO VERIFICADO: colores verde/rosa exactos de Padel Rocks (requiere logo/reglas globales), logos de Express/Pádel, datos de contacto de otras marcas.
