@@ -25,10 +25,10 @@ ctx.fillStyle=th.b2;ctx.fillRect(0,0,W,H);const g=ctx.createLinearGradient(0,0,W
 ctx.save();ctx.beginPath();ctx.rect(0,0,W,hdrH+20);ctx.clip();ctx.strokeStyle=th.lines;ctx.lineWidth=3;for(let x=-hdrH;x<W+hdrH;x+=18){ctx.beginPath();ctx.moveTo(x,hdrH+20);ctx.lineTo(x+(hdrH+20)*.7,0);ctx.stroke()}ctx.restore();
 // cabecera (se escala sola si el contenido no cabe)
 let t1=T.t1,t2=T.t2;if(t1&&!t2){const w=t1.split(/\s+/);if(w.length>=3){let best=1,bd=1e9;for(let q=1;q<w.length;q++){const d=Math.abs(w.slice(0,q).join(' ').length-w.slice(q).join(' ').length);if(d<bd){bd=d;best=q}}t1=w.slice(0,best).join(' ');t2=w.slice(best).join(' ')}}
-const pill=I.aliados.length>=2,B={logo:story?112:84,gap:story?22:14,ph:story?84:70,pre:story?44:38,s1:story?82:66,s2:story?90:74};
+const round=!!(O.roundLogo&&I.logo&&Math.abs(I.logo.width/I.logo.height-1)<.06),pill=I.aliados.length>=2,B={logo:round?(story?150:116):story?112:84,gap:story?22:14,ph:story?84:70,pre:story?44:38,s1:story?82:66,s2:story?90:74};
 const need=B.logo+B.gap+(pill?B.ph+14:0)+(T.pre?B.pre:0)+(t1?B.s1*1.08:0)+(t2?B.s2*1.05:0),k=Math.min(1,(hdrH-SAFE-(story?34:26)-(story?46:40))/need);
 let y=SAFE+(story?34:26);const logoH=B.logo*k;
-if(I.logo)contain(I.logo,(W-440*k)/2,y,440*k,logoH,.5,O.logoScale);else needs.push('Falta logo oficial.');
+if(I.logo&&round){const bw=440*k,s=Math.min(bw/I.logo.width,logoH/I.logo.height)*O.logoScale,dw=I.logo.width*s,dh=I.logo.height*s,dx=(W-dw)/2,dy=y+(logoH-dh)/2;ctx.save();ctx.beginPath();ctx.arc(dx+dw*.4814,dy+dh*.4961,dw*.4605,0,7);ctx.clip();ctx.drawImage(I.logo,dx,dy,dw,dh);ctx.restore()}else if(I.logo)contain(I.logo,(W-440*k)/2,y,440*k,logoH,.5,O.logoScale);else needs.push('Falta logo oficial.');
 y+=logoH+B.gap*k;
 if(pill){const ph=B.ph*k,pw=620*k,px=(W-pw)/2,tx=px+(290*k)+ph+6;RR(px,y,pw,ph,ph/2,'#ffffff');contain(I.aliados[0],px+26*k,y+8*k,250*k,ph-16*k);contain(I.aliados[1],px+290*k,y+6*k,ph-12*k,ph-12*k);
 txt('ALIANZA',tx,y+ph*.2,15*k,'#c0507a',{weight:800,sp:3,min:10});txt('Padel Rocks Rapel',tx,y+ph*.2+20*k,28*k,'#0b3d26',{weight:900,fam:'Fraunces',maxW:px+pw-tx-20,min:14});y+=ph+14*k}
