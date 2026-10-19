@@ -80,3 +80,9 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Probado con el logo negro real, la fachada real y 5 fotos de categoría reales del letrero del usuario. Hallazgos corregidos: rótulos de categoría fijos (ahora editables con `|`) y hero con bandas oscuras (ahora rellena si recorta <15 %, si no completa con fondo desenfocado de la propia foto).
 - 50 exportaciones (5 marcas × 5 plantillas × feed/historia) sin errores.
 - NO VERIFICADO: logo blanco transparente oficial desde Drive; QR con teléfono; Banana.
+
+## Pulido de calidad de la plantilla Aprobado (2026-10-19)
+- Comparación lado a lado con el flyer rojo aprobado: diferencias detectadas y corregidas: foto acercada con zoom/enfoque (sliders nuevos), borde superior diagonal del hero, franja inferior más fina, sombra en títulos, degradado más profundo en cabecera.
+- "Aprobado" es ahora la plantilla por defecto y recomendada; las otras 4 quedan como "Básica" (menor acabado; no usar para piezas finales).
+- 50 exportaciones sin errores. La calidad final depende también de usar los activos originales de Drive (logos, íconos, QR) y fotos nítidas; las pruebas usaron recortes de baja resolución.
+- NO VERIFICADO: comparación con los activos exactos de Drive; QR con teléfono; Banana.
