@@ -23,3 +23,9 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 ## Enlaces guardados
 - Flow (proyecto + herramienta Oviedo Puente Flow): https://flow.google.com/project/f45f26cf-bc8b-40b6-ab1a-94fd98ac93eb/tool/c228322c-4960-41a2-bc5f-701860a8b116
   Acceso solo con cuenta Google del usuario; no es credencial. Sin ejecutar Banana.
+
+## Flow/Banana (2026-10-19)
+- Protocolo de originalidad: `docs/FLOW_BANANA_PROTOCOLO.md`. Flyer de referencia (5 bandas) definido como meta de calidad.
+- "Preparar instrucciones" del editor ahora incluye estructura objetivo y reglas estrictas (probado local: texto generado, exporta PNG, 0 errores).
+- Conexión API con Flow/Banana: NO existe/NO VERIFICADA. Banana sin ejecutar. Pendiente: autorización de créditos para UNA prueba.
+- Imagen de referencia no se sube al repo público (contiene marcas de terceros).

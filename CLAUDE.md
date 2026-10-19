@@ -18,4 +18,4 @@ Sin relación con PLAN_MAESTRO_OVIEDO.
 Cloudflare Pages: build `exit 0`, salida `web`, despliega desde `main`. Ramas de trabajo → PR → merge a main = deploy.
 
 ## Conocimiento del negocio
-Ver `docs/CONOCIMIENTO_NEGOCIO.md`. Estado y pendientes: `docs/ESTADO_SESION.md`.
+Ver `docs/CONOCIMIENTO_NEGOCIO.md`. Estado y pendientes: `docs/ESTADO_SESION.md`. Flow/Banana: `docs/FLOW_BANANA_PROTOCOLO.md`.

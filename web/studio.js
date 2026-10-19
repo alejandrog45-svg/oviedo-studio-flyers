@@ -65,6 +65,8 @@ $('flowPrompt').onclick=()=>{$('flowBrief').value=[
 'Diseño limpio y legible. Tipografía Montserrat para Oviedo. No recortar fotos, logos ni textos.',
 'Contacto El Manzano: Carretera H66 KM 60 S/N, Las Cabras. WhatsApp +56 9 3862 3488. Instagram @oviedo_elmanzano.',
 'Canal oficial: https://whatsapp.com/channel/0029Vb9OFHXGU3BGa2dgUn0e',
+'Estructura objetivo: cabecera con logo y título; fotografía real protagonista; franja de 5 categorías con fotos originales (materiales, herramientas, pinturas, baños y cocinas, electricidad); contacto; redes. Paleta rojo/negro/blanco, trazos de pincel, sin líneas grises.',
+'Originalidad estricta: usar solo imágenes adjuntas; marcas de terceros solo si aparecen en fotos originales; no corregir ni agregar texto; no mencionar otras sucursales. Flow solo para fondos y acabados decorativos.',
 'Entregar como propuesta pendiente de revisión. No publicar automáticamente.'
 ].join('\n\n')};
 $('flowImage').onchange=()=>load($('flowImage'),(i,n)=>{photo=i;photoName=n;photoSource='flow'});
