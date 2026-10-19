@@ -29,3 +29,9 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - "Preparar instrucciones" del editor ahora incluye estructura objetivo y reglas estrictas (probado local: texto generado, exporta PNG, 0 errores).
 - Conexión API con Flow/Banana: NO existe/NO VERIFICADA. Banana sin ejecutar. Pendiente: autorización de créditos para UNA prueba.
 - Imagen de referencia no se sube al repo público (contiene marcas de terceros).
+
+## Plantilla Catálogo 5 bandas + puente IA (2026-10-19)
+- Nueva plantilla "Catálogo · 5 bandas" (Feed e Historia): cabecera logo+título+mensaje, hero (foto original), 5 categorías (5 fotos en orden), contacto, redes. Probada: 4 plantillas × 2 formatos exportan PNG exactos, 0 errores. Verificada solo con imágenes de relleno; con fotos reales: NO VERIFICADO.
+- Corregido defecto previo: `textBlock` no partía líneas (`/\\s+/` → `/\s+/`). Títulos ahora se ajustan en varias líneas. Mensaje de error de texto largo ahora cita el texto.
+- Sección "Asistentes IA" (enlaces manuales Gemini, ChatGPT, Meta AI, Claude) + `docs/PUENTE_IA.md`. Solo Claude Code VERIFICADO; el resto acceso manual, sin API.
+- Usuario autorizó (19-10-2026) UNA prueba con Banana. **NO EJECUTADA**: Flow exige la sesión Google del usuario y esta sesión no tiene acceso. Ejecutar manualmente con "Preparar instrucciones" (plantilla Catálogo) y registrar resultado aquí.
