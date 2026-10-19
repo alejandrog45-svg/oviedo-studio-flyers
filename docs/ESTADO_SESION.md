@@ -51,3 +51,6 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Localizados en Drive (solo lectura): fachada_patio_2026-10-14_01 (03), logos Oviedo blanco y placa (04), ESCENARIO_2025, flyers de referencia Express/Pádel.
 - Límite técnico: el conector de Drive entrega los binarios como base64 dentro del contexto de la sesión; no se guardan a disco. Reconstruirlos a mano no es fiable (intento con el logo de 14 KB falló y se descartó). Por eso la prueba con fotos/logos oficiales reales se hace cargándolos en el editor desde el navegador del usuario (el editor los procesa localmente).
 - Opción futura (requiere crear un cliente OAuth de Google del proyecto): selector de Drive dentro del editor. No iniciado.
+
+## Seguridad (2026-10-19)
+- `web/_headers` con CSP y cabeceras; probado local. Informe: `docs/INFORME_FINAL.md`.
