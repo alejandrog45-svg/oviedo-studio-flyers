@@ -84,3 +84,6 @@ Fotos y material adicional del usuario (interior del local, baños, pinturas, es
 
 ## Íconos oficiales en el proyecto (2026-10-19)
 Por instrucción del usuario se descargaron los íconos que faltaban y se guardaron en `web/assets/iconos/` (PNG 256×256 transparente): WhatsApp, Instagram, Facebook, Canal de WhatsApp (recorte circular del QR autorizado) y pin de ubicación. El editor los usa por defecto en Aprobado y Conoce; los que el usuario cargue desde Drive tienen prioridad. Procedencia y licencias: `web/assets/iconos/README.md` (WhatsApp: dominio público verificado; Instagram/Facebook: licencia NO VERIFICADA desde esta sesión; marcas registradas de Meta).
+
+## Logos por defecto (2026-10-19)
+`web/assets/logos/` guarda el logo Oviedo blanco y negro con fondo transparente (derivados sin retoque de los originales del usuario). El editor los usa solos; los cargados por el usuario tienen prioridad. www.oviedo.cl bloquea la descarga automática (403): el logo vectorial oficial sigue pendiente.
