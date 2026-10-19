@@ -1,0 +1,52 @@
+# Conocimiento del negocio · Oviedo Studio
+
+## Marca (inviolable)
+- Logo Oviedo y fachada intocables: no redibujar, recolorear, recortar ni regenerar.
+- Paleta: rojo (#d71932 en editor), negro, blanco. Tipografía Montserrat 800.
+- Sin líneas grises ni bordes sueltos.
+- No inventar fotos, personas, productos, precios, SKU, descuentos ni fechas.
+- Promos de El Manzano: no mencionar otras sucursales.
+
+## Datos El Manzano
+- Dirección: Carretera H66 KM 60 S/N, Las Cabras
+- WhatsApp: +56 9 3862 3488
+- Instagram: @oviedo_elmanzano
+- Canal WhatsApp: https://whatsapp.com/channel/0029Vb9OFHXGU3BGa2dgUn0e
+
+## Formatos
+Feed 1080×1350 (margen 48 px). Historia 1080×1920 (250 px libres arriba/abajo, 60 px laterales).
+
+## Drive (solo lectura de originales)
+Carpeta raíz id `1skgd6eeBI57Mfp3cmEm18IRCbkTzP70h`: 01 aprobados, 02 pendientes QA, 03 fotos originales
+(fachada_patio_2026-10-14_01, ESCENARIO_2025), 04 logos (blanco, placa), 06 app, 07 packs, 08 documentación.
+Los originales no se suben a este repo público.
+
+## Integraciones IA
+Flow: intercambio manual (copiar instrucciones / importar imagen). Enlace guardado (requiere login Google; herramienta "Oviedo Puente Flow"): https://flow.google.com/project/f45f26cf-bc8b-40b6-ab1a-94fd98ac93eb/tool/c228322c-4960-41a2-bc5f-701860a8b116 . Banana: sin ejecutar.
+Ninguna integración por API. Suscripción personal ≠ créditos API. Claves nunca en frontend.
+
+## Alcance: cualquier flyer de cualquier marca (confirmado por el usuario 2026-10-19)
+Marcas: Oviedo (El Manzano), Oviedo Expréss, Pádel Oviedo, Alianza Pádel · Oviedo Expréss, Feria Ferretera. Cualquier contexto, respetando reglas.
+Reglas desde Drive (08_DOCUMENTACION_REGLAS, copia del proyecto):
+- Oviedo: Montserrat pesada; rojo, negro, blanco. Pádel: Fraunces y verde/rosa del logo Padel Rocks.
+- Alianza: integrar wordmark Oviedo Expréss y círculo Padel Rocks Rapel.
+- Logos (Oviedo, Express, Padel Rocks, terceros) y fachada intocables; fuentes originales inalteradas, solo copias.
+- Sin textos/precios/personas/logos/fechas/QR cortados; un dato una sola vez; sin líneas grises ni bordes sueltos.
+- Revisar fecha, descuentos, condiciones, contactos, tamaño y legibilidad antes de dar visto bueno. No publicar automáticamente.
+- Datos de contacto de marcas distintas a El Manzano: NO disponibles en el repo; los ingresa el usuario (no inventar).
+- `REGLAS_GLOBALES_FLYERS_OVIEDO_Y_PADEL_OVIEDO_EXPRESS.md` y la sección 3b de `REGLAS_E_INSTRUCCIONES_FLYERS_A_Y_B_ANIVERSARIO_2026.md` están en una carpeta Drive ajena al proyecto; no se leyeron (Regla 0). Pendiente: que el usuario las copie a 08_DOCUMENTACION_REGLAS.
+
+## Datos oficiales por marca (Drive: REGLAS_GLOBALES_FLYERS_OVIEDO_Y_PADEL_OVIEDO_EXPRESS, 14-10-2026, sección 7)
+| Dato | Oviedo El Manzano | Padel Oviedo · Oviedo Expréss |
+|---|---|---|
+| Dirección | Carretera H66 KM 60 S/N, Las Cabras | Sector El Estero s/n, Las Cabras |
+| WhatsApp | +56 9 3862 3488 | Reservas pádel +56 9 5923 7808 · Cotiza Oviedo Express +56 9 3862 3488 |
+| Instagram | @oviedo_elmanzano | @padel_rocks_rapel |
+| Facebook / web | /oviedoelmanzano · www.oviedo.cl | www.oviedo.cl |
+| Servicio | — | Despacho en el día · Retiro 15:30 hrs |
+Colores: Oviedo #E1141E→#9E0C14, negro, blanco. Pádel verde #14693F/#0B3D26, rosa #F6A8C4, blanco. No mezclar paletas; datos de una marca no se atribuyen a otra.
+Fuentes: Oviedo Montserrat 800/900; Pádel Fraunces; sin Arial/Impact de respaldo (si no cargan, no se aprueba).
+Reglas clave: cero texto inventado (precios, fechas, horas, descuentos solo si el dueño los confirma); un dato una vez por pieza; objetivo visible en 3 s; titulares ≤2 líneas; pie ≥17 px; cero líneas grises; solo fotos reales; logos originales siempre (Oviedo blanco sobre color, wordmark Oviedo Expréss, círculo Padel Rocks Rapel); alianza = dos logos juntos en un bloque con rótulo "Alianza Padel Rocks Rapel"; evento pasado rotulado como pasado; sin banderines/globos; QR del Canal ≥150 px probado con teléfono; borradores sin publicar; verificar visualmente cada pieza (historia y feed) antes de entregar.
+Datos confirmados del aniversario: 10 % en todos los productos; 6 de noviembre; aniversario n.º 9. El horario 08:30–18:00 NO se agrega sin orden.
+Marcas de terceros confirmadas (13): Perfimet, Odis, Soquina, Weber, San Juan, Hyundai, DeWalt, Sika, Volcan, Schneider Electric, MTS, Femoglas, Hoffens.
+Nota: estas reglas se leyeron (solo lectura) de una carpeta Drive fuera del proyecto por instrucción expresa del usuario ("todo está en Drive"); no se modificó nada allí.
