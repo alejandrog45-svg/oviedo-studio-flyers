@@ -11,3 +11,6 @@ credentials*.json
 __pycache__/
 *.pyc
 private-assets/
+
+salidas/
+material_fuente/
