@@ -100,3 +100,6 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 ## Logos por defecto (2026-10-19)
 - Logos blanco y negro transparentes incorporados y conectados (se usan sin cargar nada). Probado sin cargar logos: 60 exportaciones sin errores.
 - www.oviedo.cl y Red MTS bloquean la descarga (403/502); no se pudo bajar el logo vectorial oficial. NO VERIFICADO: calidad a tamaño grande; comparación con el vectorial oficial.
+
+## Prompt para Claude Code en PC (2026-10-19)
+- `docs/PROMPT_CLAUDE_CODE_PC.md`: prompt completo para clonar el proyecto en `W:\PROYECTOS CUENTA ALEJANDROG45\OVIEDO_STUDIO_FLYERS` sin tocar otros proyectos (revisa LEEME_RUTAS, INVENTARIO_ACCESOS y .gitconfig-alejandro, aplica ahorro de tokens, antirretroceso y blindaje). Rutas y nombres de carpetas del PC provienen de una captura del usuario: NO VERIFICADO desde la nube.
