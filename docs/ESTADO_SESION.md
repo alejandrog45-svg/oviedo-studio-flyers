@@ -96,3 +96,7 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 ## Íconos por defecto (2026-10-19)
 - Reemplazados los recortes de prueba por íconos limpios con fondo transparente (descarga autorizada: Wikimedia Commons + Material Design). Probado sin cargar ningún ícono: 60 exportaciones (5 marcas × 6 plantillas × feed/historia) sin errores; flyers "Conoce nuestra ferretería" regenerados.
 - NO VERIFICADO: licencias de Instagram/Facebook en Commons; comparación con los íconos exactos de Drive (copiados a 04_LOGOS_OFICIALES/ICONOS_REDES_Y_QR).
+
+## Logos por defecto (2026-10-19)
+- Logos blanco y negro transparentes incorporados y conectados (se usan sin cargar nada). Probado sin cargar logos: 60 exportaciones sin errores.
+- www.oviedo.cl y Red MTS bloquean la descarga (403/502); no se pudo bajar el logo vectorial oficial. NO VERIFICADO: calidad a tamaño grande; comparación con el vectorial oficial.
