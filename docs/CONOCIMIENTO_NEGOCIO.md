@@ -81,3 +81,6 @@ Cuidados: las fotos del local muestran etiquetas de precio (usar solo si están 
 ## QR del Canal autorizado
 El usuario confirmó (2026-10-19) que este QR está autorizado y funciona. Guardado como activo oficial en `web/assets/qr_canal_oviedo.png` (1024×1024, 69 KB, ojos rojos, insignia verde central). Decodifica por software a https://whatsapp.com/channel/0029Vb9OFHXGU3BGa2dgUn0e. El editor lo usa por defecto en Aprobado y Conoce y en el QR de las plantillas básicas; se puede cargar otro o ocultar.
 Fotos y material adicional del usuario (interior del local, baños, pinturas, escenario, ferias): NO se suben al repositorio público (clientes visibles y etiquetas de precio); permanecen en el Drive del usuario y se cargan en el editor.
+
+## Íconos oficiales en el proyecto (2026-10-19)
+Por instrucción del usuario se descargaron los íconos que faltaban y se guardaron en `web/assets/iconos/` (PNG 256×256 transparente): WhatsApp, Instagram, Facebook, Canal de WhatsApp (recorte circular del QR autorizado) y pin de ubicación. El editor los usa por defecto en Aprobado y Conoce; los que el usuario cargue desde Drive tienen prioridad. Procedencia y licencias: `web/assets/iconos/README.md` (WhatsApp: dominio público verificado; Instagram/Facebook: licencia NO VERIFICADA desde esta sesión; marcas registradas de Meta).

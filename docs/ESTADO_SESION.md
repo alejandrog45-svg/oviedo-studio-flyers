@@ -92,3 +92,7 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - QR autorizado incorporado (`web/assets/qr_canal_oviedo.png`); verificado por software (zxing) dentro de las piezas finales (Historia y Feed).
 - Entregados al usuario: flyer Historia 1080×1920 y Feed 1080×1350 "Conoce nuestra ferretería" (El Manzano). Pendiente del usuario: aprobación humana, lectura del QR con teléfono (la confirmación del usuario es sobre el QR oficial), y cargar los íconos originales de Drive (en la prueba se usaron recortes).
 - NO VERIFICADO: logo/íconos exactos de Drive en la pieza final; Banana.
+
+## Íconos por defecto (2026-10-19)
+- Reemplazados los recortes de prueba por íconos limpios con fondo transparente (descarga autorizada: Wikimedia Commons + Material Design). Probado sin cargar ningún ícono: 60 exportaciones (5 marcas × 6 plantillas × feed/historia) sin errores; flyers "Conoce nuestra ferretería" regenerados.
+- NO VERIFICADO: licencias de Instagram/Facebook en Commons; comparación con los íconos exactos de Drive (copiados a 04_LOGOS_OFICIALES/ICONOS_REDES_Y_QR).

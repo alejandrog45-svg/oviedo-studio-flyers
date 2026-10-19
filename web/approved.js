@@ -52,7 +52,7 @@ if(I.marcas.length<13)needs.push('Faltan logos de marcas confirmadas ('+I.marcas
 // contacto
 const cg=ctx.createLinearGradient(0,0,W,0);cg.addColorStop(0,th.band1);cg.addColorStop(1,th.band2);ctx.fillStyle=cg;ctx.fillRect(0,conY,W,conH);
 const cy=conY+conH/2,ic=story?64:56;
-RR(36,cy-ic/2,ic,ic,ic/2,'#ffffff');if(I.icons.ubicacion)contain(I.icons.ubicacion,36,cy-ic/2,ic,ic);else{ctx.fillStyle=th.band1;ctx.beginPath();ctx.arc(36+ic/2,cy-6,13,0,7);ctx.fill();ctx.beginPath();ctx.moveTo(36+ic/2-10,cy+2);ctx.lineTo(36+ic/2+10,cy+2);ctx.lineTo(36+ic/2,cy+22);ctx.fill();RR(36+ic/2-5,cy-11,10,10,5,'#fff')}
+RR(36,cy-ic/2,ic,ic,ic/2,'#ffffff');if(I.icons.ubicacion)contain(I.icons.ubicacion,36+ic*.18,cy-ic/2+ic*.14,ic*.64,ic*.7);else{ctx.fillStyle=th.band1;ctx.beginPath();ctx.arc(36+ic/2,cy-6,13,0,7);ctx.fill();ctx.beginPath();ctx.moveTo(36+ic/2-10,cy+2);ctx.lineTo(36+ic/2+10,cy+2);ctx.lineTo(36+ic/2,cy+22);ctx.fill();RR(36+ic/2-5,cy-11,10,10,5,'#fff')}
 
 txt(T.lugar,36+ic+16,cy-30,story?27:23,'#ffffff',{weight:900,maxW:(String(T.wa||'').includes('·')?335:385)});txt(T.dir,36+ic+16,cy+4,story?20:18,'#ffffff',{weight:600,maxW:(String(T.wa||'').includes('·')?335:385)});
 const nums=String(T.wa||'').split('·').map(t=>t.trim()).filter(Boolean),two=nums.length>1,tmax=two?335:385,wx=two?(story?462:452):(story?535:520);
