@@ -6,7 +6,19 @@ const y=425,fh=H-680;ctx.fillStyle='#2a2c33';ctx.fillRect(30,y,1020,fh);if(photo
 ctx.strokeStyle='#f4f4f4';ctx.lineWidth=3;ctx.strokeRect(30,y,1020,fh);ctx.fillStyle='#e01d38';ctx.fillRect(0,H-224,W,9);centerText('Carretera H66 KM 60 S/N, Las Cabras',H-142,28);centerText('+56 9 3862 3488  ·  @oviedo_elmanzano',H-83,27);$('qa').textContent=photo?'Foto cargada: '+photoName+(photoSource==='flow'?'. Resultado de Google Flow: pendiente de revisar originalidad, logos y datos. No aprobado.':'. Original intacto; revisa logos, textos, encuadre y autenticidad antes de publicar.'):'Falta fotografía original. No publicar.'}
 async function load(input,cb){const f=input.files?.[0];if(!f)return;const url=URL.createObjectURL(f);try{const im=new Image();await new Promise((resolve,reject)=>{im.onload=resolve;im.onerror=reject;im.src=url});cb(im,f.name);draw()}catch(e){alert('No se pudo abrir la imagen')}finally{URL.revokeObjectURL(url)}}
 $('foto').onchange=()=>load($('foto'),(i,n)=>{photo=i;photoName=n;photoSource='original'});$('logo').onchange=()=>load($('logo'),(i,n)=>{logo=i;logoName=n});for(const id of ['tipo','titulo','sub'])$(id).addEventListener('input',draw);
-$('export').onclick=()=>{if(!fontReady){$('fontStatus').textContent='Montserrat no está disponible. Comprueba tu conexión y recarga antes de exportar.';return}if(!photo){alert('Carga primero una fotografía original');return}c.toBlob(blob=>{if(!blob)return;download(blob,'oviedo-studio-'+$('tipo').value+'.png')},'image/png')};
+let exportUrl=null;
+$('export').onclick=()=>{if(!fontReady){$('fontStatus').textContent='Montserrat no está disponible. Comprueba tu conexión y recarga antes de exportar.';return}if(!photo){alert('Carga primero una fotografía original');return}
+const name='oviedo-studio-'+$('tipo').value+'.png',width=c.width,height=c.height;
+c.toBlob(blob=>{if(!blob){$('qa').textContent='No se pudo generar el PNG. Intenta nuevamente.';return}
+let panel=$('exportResult');if(!panel){panel=document.createElement('section');panel.id='exportResult';panel.setAttribute('aria-label','Archivo PNG exportado');$('cv').parentElement.append(panel)}
+if(exportUrl)URL.revokeObjectURL(exportUrl);exportUrl=URL.createObjectURL(blob);
+const url=exportUrl,title=document.createElement('h2'),status=document.createElement('p'),preview=new Image(),link=document.createElement('a');
+title.textContent='PNG exportado · pendiente de revisión';status.setAttribute('role','status');status.textContent='Comprobando archivo PNG…';
+preview.alt='Vista del archivo '+name;preview.style.cssText='display:block;max-width:100%;max-height:600px;object-fit:contain;margin:12px auto';
+link.textContent='Guardar PNG exportado';link.download=name;link.href=url;
+preview.onload=()=>{status.textContent=preview.naturalWidth===width&&preview.naturalHeight===height?'PNG comprobado: '+preview.naturalWidth+' × '+preview.naturalHeight+' píxeles · '+blob.size+' bytes. Foto, logo y textos requieren revisión humana.':'Las dimensiones del PNG no coinciden. No publicar.'};
+preview.onerror=()=>{status.textContent='No se pudo comprobar el PNG. No publicar.'};panel.replaceChildren(title,status,preview,link);preview.src=url;download(blob,name)
+},'image/png')};
 function download(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),2000)}
 $('manifest').onclick=()=>{const data={proyecto:'Oviedo Studio',fecha:new Date().toISOString(),foto_original:photoSource==='original'?photoName:null,imagen:photoName,origen_imagen:photoSource,logo_original:logoName,formato:[c.width,c.height],titulo:$('titulo').value,mensaje:$('sub').value,origenes_verificados:false,aprobado_por_usuario:false,publicado:false};download(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'ficha-qa.json')};
 
