@@ -130,3 +130,10 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Hecho y en producción (PR #8-#13): bloqueos de exportación (círculos y banda de marcas vacíos), aviso de foto ampliada, zona segura de Historia, Pádel (logo circular, sin QR), logo/banner Oviedo Expréss, íconos oficiales Instagram/Facebook, CSP real en /studio, selector de Drive (NO CONECTADO), login heredado retirado (index.html, main.js, firebase-config.example.js, firebase.json; recuperable en git). 3 flyers APROBADOS por el usuario y QR confirmado.
 - Verificación final: ver sección «Verificación de cierre» más abajo.
 - PENDIENTES (otra sesión): (1) usuario crea el Client ID OAuth y lo pone en web/drive-config.js; probar el selector con Google real; (2) usuario aporta logo Oviedo Expréss en mayor tamaño (hoy: banner 691 px); (3) probar el editor en un móvil físico; (4) prueba única con Banana en Flow con el usuario presente; (5) titular real de la pieza Aprobado (la aprobada usa «Tu proyecto empieza aquí»); (6) revisar datos de la marca Express (hoy usa @padel_rocks_rapel y pie de Pádel por las reglas globales); (7) tótem Sucursal El Manzano guardado, sin uso; (8) evaluar compactar la banda de marcas en Historia (la foto del hero queda baja); (9) confirmar que el usuario eliminó la herramienta de Flow.
+
+### Verificación de cierre (2026-10-19, tras PR #14 · main e90f020)
+- Producción: / -> 302 al editor; /studio 200 con CSP; /studio.html 308; /index.html y /firebase-config.js 404; /drive.js y /approved.js 200. /main.js aún 200 por copia en la caché de Cloudflare (s-maxage 7 días; en origen da 404; archivo inerte, sin secretos).
+- Vista previa del PR #14: las 6 plantillas exportan 1080x1350 con 0 errores de consola.
+- Repo: árbol limpio, raíz solo con docs/, material_fuente/ (ignorada), salidas/ (ignorada), scripts/, web/, .gitignore, CLAUDE.md, README.md.
+- Rutas documentadas verificadas en W: (LEEME_RUTAS.md e INVENTARIO_ACCESOS.html actualizados; respaldos previos en _respaldos\oviedo-studio-flyers_2026-10-19\).
+- NO VERIFICADO: selector de Drive con Google real; QR por teléfono lo confirmó el usuario.
