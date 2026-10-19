@@ -70,3 +70,8 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Defectos corregidos al probar: rombos de "Marcas", columnas de contacto (dos WhatsApp en Pádel/Alianza), cabecera con bloque de Alianza (escala sola), título largo repartido en 2 líneas.
 - 18 activos originales copiados a Drive del proyecto (ver CONOCIMIENTO_NEGOCIO). Pruebas con esos archivos exactos desde el navegador del usuario: NO VERIFICADO (los de prueba fueron recortes de flyers).
 - NO VERIFICADO: logo Oviedo blanco transparente real y wordmark/círculo originales; QR con teléfono.
+
+## Logo blanco/negro + hero con fotos verticales (2026-10-19)
+- Dos campos de logo (blanco / negro). Plantillas con placa blanca usan el negro; Aprobado usa el blanco. QA avisa si falta el negro sobre fondo claro. Ficha QA incluye logo_negro.
+- Hero de Aprobado: si la foto no rellena, se muestra completa sobre un fondo desenfocado de la misma foto (original intacto). Probado con fotos reales verticales y horizontales (aportadas por el usuario).
+- NO VERIFICADO: logo negro oficial (la prueba usó un recorte del banner Oviedo Express).

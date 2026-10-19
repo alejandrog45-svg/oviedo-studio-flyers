@@ -38,7 +38,7 @@ if(t2){const z2=txt(t2,W/2,y,B.s2*k,th.t2,{align:'center',weight:900,maxW:W-60})
 // zona inferior oscura + hero + franja
 R(0,heroBot-26,W,stripH+26,th.dark);
 ctx.save();ctx.beginPath();ctx.moveTo(0,hdrH);ctx.lineTo(W,hdrH);ctx.lineTo(W,heroBot-24);ctx.lineTo(0,heroBot);ctx.closePath();ctx.clip();R(0,hdrH,W,heroBot-hdrH,'#0b0b0d');
-if(I.photo){const hh=heroBot-hdrH,kc=Math.max(W/I.photo.width,hh/I.photo.height),vis=(W/(I.photo.width*kc))*(hh/(I.photo.height*kc));if(O.cover||vis>=.85)cover(I.photo,0,hdrH,W,heroBot-hdrH,O.photoY);else contain(I.photo,0,hdrH,W,heroBot-hdrH,O.photoY,O.photoScale)}else{txt('Carga una fotografía original',W/2,(hdrH+heroBot)/2-14,30,'#8b929e',{align:'center'})}ctx.restore();
+if(I.photo){const hh=heroBot-hdrH,kc=Math.max(W/I.photo.width,hh/I.photo.height),vis=(W/(I.photo.width*kc))*(hh/(I.photo.height*kc));if(O.cover||vis>=.85)cover(I.photo,0,hdrH,W,heroBot-hdrH,O.photoY);else{ctx.save();ctx.filter='blur(22px)';cover(I.photo,-30,hdrH-30,W+60,hh+60,.5);ctx.filter='none';R(0,hdrH,W,hh,'rgba(0,0,0,.45)');ctx.restore();contain(I.photo,0,hdrH,W,hh,O.photoY,O.photoScale)}}else{txt('Carga una fotografía original',W/2,(hdrH+heroBot)/2-14,30,'#8b929e',{align:'center'})}ctx.restore();
 ctx.fillStyle=th.strip;ctx.beginPath();ctx.moveTo(0,heroBot+26);ctx.lineTo(W,heroBot);ctx.lineTo(W,heroBot+stripH);ctx.lineTo(0,heroBot+stripH);ctx.closePath();ctx.fill();
 // cinta inclinada
 if(T.ribbon){const rh=story?58:50,rz=story?26:22,tw=measure(T.ribbon,rz,900,'italic',1.5,F),rw=Math.min(W-60,tw+100),rx=(W-rw)/2,ry=hdrH-rh/2-4,dx=rh*.25;
