@@ -72,3 +72,15 @@ Fachada panorámica con PATIO CONSTRUCTOR, fachada vertical Sala de Ventas, vist
 - Flyer aprobado Feria Ferretera 2026 (10 % de descuento en todos los productos, 6 de noviembre, horario continuado, +15 expositores, clínicas y charlas). Son datos confirmados del evento; el horario 08:30–18:00 sigue sin agregarse.
 - Foto horizontal de la cancha de pádel con quinchos (Padel Rocks Rapel).
 Regla: los rótulos de categoría de la plantilla Catálogo son editables; deben describir la foto que acompañan (nunca asumir el orden por defecto).
+
+## Plantilla "Conoce nuestra ferretería" (2026-10-19)
+Estructura del flyer aprobado por el usuario: foto interior a sangre, logo NEGRO en placa blanca + etiqueta roja de sucursal ("EL MANZANO"), cinta de brocha con lema ("Tu ferretería de confianza"), banda "CONOCE NUESTRA" + "FERRETERÍA" gigante, 4 categorías en círculos con fotos reales (Herramientas y accesorios · Materiales de construcción · Plomería y gas · Pinturas y terminaciones), onda roja, contacto (dirección, WhatsApp, Instagram) y QR opcional. Campos: título, segunda línea, lema, rótulos `LÍNEA1/LÍNEA2|…`, zoom y enfoque de la foto.
+Fotos usadas en la versión de ejemplo: pasillo de pinturas (sin personas) como principal; recortes cuadrados de pared de herramientas, carretillas, termos de agua y estantería de pinturas para los círculos.
+Cuidados: las fotos del local muestran etiquetas de precio (usar solo si están vigentes; el QA lo recuerda) y a veces personas (solo con autorización del dueño). Ajuste de luz/color suave en la foto principal (brillo 1.07, contraste 1.06, saturación 1.1); no se altera el contenido.
+
+## QR del Canal autorizado
+El usuario confirmó (2026-10-19) que este QR está autorizado y funciona. Guardado como activo oficial en `web/assets/qr_canal_oviedo.png` (1024×1024, 69 KB, ojos rojos, insignia verde central). Decodifica por software a https://whatsapp.com/channel/0029Vb9OFHXGU3BGa2dgUn0e. El editor lo usa por defecto en Aprobado y Conoce y en el QR de las plantillas básicas; se puede cargar otro o ocultar.
+Fotos y material adicional del usuario (interior del local, baños, pinturas, escenario, ferias): NO se suben al repositorio público (clientes visibles y etiquetas de precio); permanecen en el Drive del usuario y se cargan en el editor.
+
+## Íconos oficiales en el proyecto (2026-10-19)
+Por instrucción del usuario se descargaron los íconos que faltaban y se guardaron en `web/assets/iconos/` (PNG 256×256 transparente): WhatsApp, Instagram, Facebook, Canal de WhatsApp (recorte circular del QR autorizado) y pin de ubicación. El editor los usa por defecto en Aprobado y Conoce; los que el usuario cargue desde Drive tienen prioridad. Procedencia y licencias: `web/assets/iconos/README.md` (WhatsApp: dominio público verificado; Instagram/Facebook: licencia NO VERIFICADA desde esta sesión; marcas registradas de Meta).
