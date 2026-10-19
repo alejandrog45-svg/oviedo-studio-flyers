@@ -23,16 +23,18 @@ const heroBot=H-socH-conH-marH-stripH,conY=heroBot+stripH+marH,socY=conY+conH;
 // fondo y rayas
 const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,th.b1);g.addColorStop(1,th.b2);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
 ctx.save();ctx.beginPath();ctx.rect(0,0,W,hdrH+20);ctx.clip();ctx.strokeStyle=th.lines;ctx.lineWidth=3;for(let x=-hdrH;x<W+hdrH;x+=18){ctx.beginPath();ctx.moveTo(x,hdrH+20);ctx.lineTo(x+(hdrH+20)*.7,0);ctx.stroke()}ctx.restore();
-// cabecera
-let y=story?34:26;const logoH=story?112:84;
-if(I.logo)contain(I.logo,(W-440)/2,y,440,logoH,.5,O.logoScale);else needs.push('Falta logo oficial.');
-y+=logoH+(story?22:14);
-if(I.aliados.length>=2){const ph=story?84:70,pw=620,px=(W-pw)/2;RR(px,y,pw,ph,ph/2,'#ffffff');contain(I.aliados[0],px+26,y+8,250,ph-16);contain(I.aliados[1],px+290,y+6,ph-12,ph-12);
-txt('ALIANZA',px+290+ph+6,y+ph*.2,15,'#c0507a',{weight:800,sp:3});txt('Padel Rocks Rapel',px+290+ph+6,y+ph*.2+20,28,'#0b3d26',{weight:900,fam:'Fraunces',maxW:pw-(290+ph+6)-24});y+=ph+14}
-if(T.pre){txt(T.pre,W/2,y,story?25:22,th.pre,{align:'center',weight:800,sp:7,maxW:W-70});y+=story?44:38}
-const s1=story?88:70,s2=story?96:78;
-const z1=txt(T.t1,W/2,y,s1,'#ffffff',{align:'center',weight:900,maxW:W-60});y+=z1?z1*1.08:0;
-if(T.t2){const z2=txt(T.t2,W/2,y,s2,th.t2,{align:'center',weight:900,maxW:W-60});y+=z2*1.05}
+// cabecera (se escala sola si el contenido no cabe)
+let t1=T.t1,t2=T.t2;if(t1&&!t2){const w=t1.split(/\s+/);if(w.length>=3){let best=1,bd=1e9;for(let q=1;q<w.length;q++){const d=Math.abs(w.slice(0,q).join(' ').length-w.slice(q).join(' ').length);if(d<bd){bd=d;best=q}}t1=w.slice(0,best).join(' ');t2=w.slice(best).join(' ')}}
+const pill=I.aliados.length>=2,B={logo:story?112:84,gap:story?22:14,ph:story?84:70,pre:story?44:38,s1:story?88:70,s2:story?96:78};
+const need=B.logo+B.gap+(pill?B.ph+14:0)+(T.pre?B.pre:0)+(t1?B.s1*1.08:0)+(t2?B.s2*1.05:0),k=Math.min(1,(hdrH-(story?34:26)-(story?46:40))/need);
+let y=story?34:26;const logoH=B.logo*k;
+if(I.logo)contain(I.logo,(W-440*k)/2,y,440*k,logoH,.5,O.logoScale);else needs.push('Falta logo oficial.');
+y+=logoH+B.gap*k;
+if(pill){const ph=B.ph*k,pw=620*k,px=(W-pw)/2,tx=px+(290*k)+ph+6;RR(px,y,pw,ph,ph/2,'#ffffff');contain(I.aliados[0],px+26*k,y+8*k,250*k,ph-16*k);contain(I.aliados[1],px+290*k,y+6*k,ph-12*k,ph-12*k);
+txt('ALIANZA',tx,y+ph*.2,15*k,'#c0507a',{weight:800,sp:3,min:10});txt('Padel Rocks Rapel',tx,y+ph*.2+20*k,28*k,'#0b3d26',{weight:900,fam:'Fraunces',maxW:px+pw-tx-20,min:14});y+=ph+14*k}
+if(T.pre){txt(T.pre,W/2,y,(story?25:22)*Math.max(k,.85),th.pre,{align:'center',weight:800,sp:7,maxW:W-70});y+=B.pre*k}
+const z1=txt(t1,W/2,y,B.s1*k,'#ffffff',{align:'center',weight:900,maxW:W-60});y+=z1?z1*1.08:0;
+if(t2){const z2=txt(t2,W/2,y,B.s2*k,th.t2,{align:'center',weight:900,maxW:W-60});y+=z2*1.05}
 // zona inferior oscura + hero + franja
 R(0,heroBot-26,W,stripH+26,th.dark);
 ctx.save();ctx.beginPath();ctx.moveTo(0,hdrH);ctx.lineTo(W,hdrH);ctx.lineTo(W,heroBot-24);ctx.lineTo(0,heroBot);ctx.closePath();ctx.clip();R(0,hdrH,W,heroBot-hdrH,'#0b0b0d');
@@ -51,10 +53,11 @@ if(I.marcas.length<13)needs.push('Faltan logos de marcas confirmadas ('+I.marcas
 const cg=ctx.createLinearGradient(0,0,W,0);cg.addColorStop(0,th.band1);cg.addColorStop(1,th.band2);ctx.fillStyle=cg;ctx.fillRect(0,conY,W,conH);
 const cy=conY+conH/2,ic=story?64:56;
 RR(36,cy-ic/2,ic,ic,ic/2,'#ffffff');if(I.icons.ubicacion)contain(I.icons.ubicacion,36,cy-ic/2,ic,ic);else{ctx.fillStyle=th.band1;ctx.beginPath();ctx.arc(36+ic/2,cy-6,13,0,7);ctx.fill();ctx.beginPath();ctx.moveTo(36+ic/2-10,cy+2);ctx.lineTo(36+ic/2+10,cy+2);ctx.lineTo(36+ic/2,cy+22);ctx.fill();RR(36+ic/2-5,cy-11,10,10,5,'#fff')}
-txt(T.lugar,36+ic+16,cy-30,story?27:23,'#ffffff',{weight:900,maxW:385});txt(T.dir,36+ic+16,cy+4,story?20:18,'#ffffff',{weight:600,maxW:385});
-const nums=String(T.wa||'').split('·').map(t=>t.trim()).filter(Boolean),two=nums.length>1,wx=two?(story?510:500):(story?535:520),colW=two?(story?250:230):W-36-(wx+ic+12)-(T.web?190:0);
-const wa=(x,num,label,w)=>{if(I.icons.whatsapp)contain(I.icons.whatsapp,x,cy-ic/2,ic,ic);else if(!needs.includes('Falta ícono original de WhatsApp.'))needs.push('Falta ícono original de WhatsApp.');txt(num,x+ic+12,cy-26,story?29:26,'#ffffff',{weight:900,maxW:w});txt(label,x+ic+12,cy+10,story?19:17,'#ffffff',{weight:700,maxW:w,min:13})};
-wa(wx,nums[0]||'',two?T.waLabel:T.waLabel,colW);if(two)wa(wx+ic+12+colW-(story?20:10)+(story?8:0),nums[1],T.wa2Label||'',colW-ic);
+
+txt(T.lugar,36+ic+16,cy-30,story?27:23,'#ffffff',{weight:900,maxW:(String(T.wa||'').includes('·')?335:385)});txt(T.dir,36+ic+16,cy+4,story?20:18,'#ffffff',{weight:600,maxW:(String(T.wa||'').includes('·')?335:385)});
+const nums=String(T.wa||'').split('·').map(t=>t.trim()).filter(Boolean),two=nums.length>1,tmax=two?335:385,wx=two?(story?462:452):(story?535:520);
+const wa=(x,num,label,w,ics)=>{if(I.icons.whatsapp)contain(I.icons.whatsapp,x,cy-ics/2,ics,ics);else if(!needs.includes('Falta ícono original de WhatsApp.'))needs.push('Falta ícono original de WhatsApp.');txt(num,x+ics+10,cy-26,story?29:26,'#ffffff',{weight:900,maxW:w});txt(label,x+ics+10,cy+10,story?19:17,'#ffffff',{weight:700,maxW:w,min:13})};
+if(two){const cw=(W-36-wx)/2,ics=story?56:50;wa(wx,nums[0],T.waLabel,cw-ics-20,ics);wa(wx+cw,nums[1],T.wa2Label||'',cw-ics-20,ics)}else wa(wx,nums[0]||'',T.waLabel,W-36-(wx+ic+10)-(T.web?190:0),ic);
 if(T.web&&!two){txt('MÁS INFORMACIÓN',W-36,cy-24,17,'#ffffff',{align:'right',weight:700});txt(T.web,W-36,cy,story?27:23,'#ffffff',{align:'right',weight:900,maxW:210})}
 // redes
 const sg=ctx.createLinearGradient(0,socY,0,H);sg.addColorStop(0,'#141416');sg.addColorStop(1,'#060607');ctx.fillStyle=sg;ctx.fillRect(0,socY,W,socH);

@@ -50,3 +50,12 @@ Reglas clave: cero texto inventado (precios, fechas, horas, descuentos solo si e
 Datos confirmados del aniversario: 10 % en todos los productos; 6 de noviembre; aniversario n.º 9. El horario 08:30–18:00 NO se agrega sin orden.
 Marcas de terceros confirmadas (13): Perfimet, Odis, Soquina, Weber, San Juan, Hyundai, DeWalt, Sika, Volcan, Schneider Electric, MTS, Femoglas, Hoffens.
 Nota: estas reglas se leyeron (solo lectura) de una carpeta Drive fuera del proyecto por instrucción expresa del usuario ("todo está en Drive"); no se modificó nada allí.
+
+## Plantilla "Aprobado" (estructura de los flyers aprobados) · cómo usarla
+Estructura (Historia 1080×1920 / Feed 1080×1350): cabecera con degradado y rayas + logo + antetítulo + título (2 líneas) + cinta inclinada; hero con corte diagonal y franja de color; banda "Marcas confirmadas" (13 logos, solo Historia); contacto; "Síguenos" con íconos originales + QR del Canal; pie.
+Activos originales ya copiados en Drive del proyecto (04_LOGOS_OFICIALES, copias; originales intactos en el otro proyecto):
+- `MARCAS_CONFIRMADAS/` (13 logos: logo_perfimet, odis, soquina, weber, san_juan, hyundai, dewalt, sika, volcan, schneider, mts, femoglas, hoffens) → cargar todos juntos en "Logos de marcas confirmadas"; el editor los ordena.
+- `ICONOS_REDES_Y_QR/` (icono_whatsapp, icono_instagram, icono_facebook, icono_canal_whatsapp, qr_canal_oviedo) → íconos en "Íconos originales"; QR en "QR del Canal aprobado".
+- Logo Oviedo blanco: 04_LOGOS_OFICIALES. Alianza: wordmark Oviedo Expréss + círculo Padel Rocks (2 archivos).
+Ícono de ubicación: no existe original; el editor dibuja un pin genérico (no es logo de marca).
+Las fotos del hero se rellenan sin recortar casi nada; si la proporción exige recortar más del 15 % se muestra completa.
