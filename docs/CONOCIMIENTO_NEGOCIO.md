@@ -22,5 +22,5 @@ Carpeta raíz id `1skgd6eeBI57Mfp3cmEm18IRCbkTzP70h`: 01 aprobados, 02 pendiente
 Los originales no se suben a este repo público.
 
 ## Integraciones IA
-Flow: intercambio manual (copiar instrucciones / importar imagen). Banana: sin ejecutar.
+Flow: intercambio manual (copiar instrucciones / importar imagen). Enlace guardado (requiere login Google; herramienta "Oviedo Puente Flow"): https://flow.google.com/project/f45f26cf-bc8b-40b6-ab1a-94fd98ac93eb/tool/c228322c-4960-41a2-bc5f-701860a8b116 . Banana: sin ejecutar.
 Ninguna integración por API. Suscripción personal ≠ créditos API. Claves nunca en frontend.

@@ -19,3 +19,7 @@
 
 ## Antirretroceso: no tocar sin motivo
 Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos de revisión humana, flag `publicado:false` en ficha QA.
+
+## Enlaces guardados
+- Flow (proyecto + herramienta Oviedo Puente Flow): https://flow.google.com/project/f45f26cf-bc8b-40b6-ab1a-94fd98ac93eb/tool/c228322c-4960-41a2-bc5f-701860a8b116
+  Acceso solo con cuenta Google del usuario; no es credencial. Sin ejecutar Banana.
