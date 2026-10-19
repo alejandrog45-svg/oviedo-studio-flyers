@@ -66,7 +66,7 @@ const items=[{k:'instagram',t:'Instagram',s:T.ig},T.fb?{k:'facebook',t:'Facebook
 const isz=story?88:70,iy=socY+(story?92:76);items.forEach((it,i)=>{const cx=40+780*(i+.5)/items.length;if(I.icons[it.k])contain(I.icons[it.k],cx-isz/2,iy,isz,isz);else needs.push('Falta ícono original de '+it.t+'.');
 txt(it.t,cx,iy+isz+10,story?25:22,'#ffffff',{align:'center',weight:800,maxW:230});txt(it.s,cx,iy+isz+(story?42:36),story?19:17,'#d9dce1',{align:'center',weight:600,maxW:230})});
 const qw=214,qh=story?258:240,qx=W-36-qw,qy=socY+(story?70:56);
-if(I.qr){RR(qx,qy,qw,qh,22,'#ffffff');contain(I.qr,qx,qy,qw,qh)}else if(O.qrGen){O.qrGen(W-36,qy+qh+24,th.band1)}
+if(I.qr){RR(qx,qy,qw,qh,22,'#ffffff');if(Math.abs(I.qr.width/I.qr.height-1)<.05){contain(I.qr,qx+10,qy+10,qw-20,qw-20);RR(qx+8,qy+qw-4,qw-16,38,8,th.band1);txt('¡SÍGUELO!',qx+qw/2,qy+qw+6,22,'#ffffff',{align:'center',weight:900,style:'italic'})}else contain(I.qr,qx,qy,qw,qh)}else if(O.qrGen){O.qrGen(W-36,qy+qh+24,th.band1)}
 if(T.pie)txt(T.pie,420,H-(story?64:46),story?18:16,'#e6e6e6',{align:'center',weight:600,maxW:780,min:12});
 return {needs,errors};
 }
