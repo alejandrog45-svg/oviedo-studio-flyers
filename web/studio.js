@@ -2,7 +2,7 @@ const $=id=>document.getElementById(id);const c=$('cv'),ctx=c.getContext('2d');l
 const BRANDS={manzano:{label:'Oviedo · Sucursal El Manzano',font:'Montserrat',bg:'#111318',accent:'#e1141e',wa:'+56 9 3862 3488',ig:'@oviedo_elmanzano',dir:'Carretera H66 KM 60 S/N, Las Cabras'},express:{label:'Oviedo Expréss (Cotiza Oviedo Express)',font:'Montserrat',bg:'#111318',accent:'#e1141e',wa:'+56 9 3862 3488',ig:'@padel_rocks_rapel',dir:'Sector El Estero s/n, Las Cabras'},padel:{label:'Pádel Oviedo · Padel Rocks Rapel',font:'Fraunces',bg:'#0b3d26',accent:'#14693f',wa:'+56 9 5923 7808',ig:'@padel_rocks_rapel',dir:'Sector El Estero s/n, Las Cabras'},alianza:{label:'Alianza Padel Rocks Rapel · Oviedo Expréss',font:'Montserrat',bg:'#111318',accent:'#e1141e',wa:'+56 9 5923 7808 · +56 9 3862 3488',ig:'@padel_rocks_rapel',dir:'Sector El Estero s/n, Las Cabras'},feria:{label:'Feria Ferretera · Oviedo El Manzano',font:'Montserrat',bg:'#111318',accent:'#e1141e',wa:'+56 9 3862 3488',ig:'@oviedo_elmanzano',dir:'Carretera H66 KM 60 S/N, Las Cabras'}};
 function fitText(s,maxWidth,size){ctx.font='800 '+size+'px '+FONT+', system-ui';while(ctx.measureText(s).width>maxWidth&&size>24){size-=2;ctx.font='800 '+size+'px '+FONT+', system-ui'}return size}
 function centerText(s,y,size,color='#fff'){ctx.fillStyle=color;ctx.font='800 '+fitText(s,980,size)+'px '+FONT+', system-ui';ctx.textAlign='center';ctx.fillText(s,W/2,y)}
-let cats=[],product=null,productName='',layoutErrors=[];
+let qrBottom=0,cats=[],product=null,productName='',layoutErrors=[];
 const value=(id,fallback)=>$(id)?.value??fallback;
 function rect(x,y,w,h,color){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
 function contained(im,x,y,w,h,scale=1,position=.5){if(!im)return;const k=Math.min(w/im.width,h/im.height)*scale;ctx.drawImage(im,x+(w-im.width*k)/2,y+(h-im.height*k)*position,im.width*k,im.height*k)}
@@ -12,6 +12,15 @@ for(;size>=18;size-=2){ctx.font='800 '+size+'px '+FONT+', system-ui';lines=[];le
 if(size<18){layoutErrors.push('Texto demasiado largo («'+text.slice(0,24)+'»): acorta el título o mensaje.');return}
 lines.forEach((line,i)=>ctx.fillText(line,align==='center'?x+width/2:x,y+i*size*1.18));
 }
+const CANAL='https://whatsapp.com/channel/0029Vb9OFHXGU3BGa2dgUn0e';
+function roundRect(x,y,w,h,r,color){ctx.fillStyle=color;ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
+function drawQR(right,bottom,accent){const q=qrcode(0,'H');q.addData(CANAL);q.make();const n=q.getModuleCount(),m=4,qz=4,side=(n+2*qz)*m,pad=12,labelH=44,cw=side+2*pad,ch=side+2*pad+labelH,cx=right-cw,cy=bottom-ch;
+roundRect(cx,cy,cw,ch,18,accent);const ox=cx+pad+qz*m,oy=cy+pad+qz*m;roundRect(cx+pad,cy+pad,side,side,10,'#fff');
+const eye=(r,c)=>(r<7&&c<7)||(r<7&&c>=n-7)||(r>=n-7&&c<7);
+ctx.fillStyle='#0d0d0d';for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(!eye(r,c)&&q.isDark(r,c)){ctx.beginPath();ctx.roundRect(ox+c*m,oy+r*m,m,m,m*.3);ctx.fill()}
+const deep='#'+[1,3,5].map(i=>Math.round(parseInt(accent.slice(i,i+2),16)*.55).toString(16).padStart(2,'0')).join('');
+for(const [r,c]of[[0,0],[0,n-7],[n-7,0]]){roundRect(ox+c*m,oy+r*m,7*m,7*m,m*1.4,deep);roundRect(ox+(c+1)*m,oy+(r+1)*m,5*m,5*m,m*.8,'#fff');roundRect(ox+(c+2)*m,oy+(r+2)*m,3*m,3*m,m*.8,deep)}
+textBlock('¡SÍGUELO!',cx+pad,cy+pad+side+8,side,labelH-14,24,'#fff','center')}
 function draw(){
 const story=value('tipo','feed')==='story',H=story?1920:1350,x=story?60:48,top=story?250:48,w=W-2*x,bottom=story?1670:1302,template=value('plantilla','institucional'),red=value('accent','#e1141e'),ink=BG;
 c.width=W;c.height=H;layoutErrors=[];rect(0,0,W,H,ink);ctx.textBaseline='top';
@@ -25,7 +34,7 @@ subject=template==='producto'?product:photo;
 rect(x,photoY,w,photoH,template==='producto'?'#fff':'#20242b');
 if(subject)contained(subject,x,photoY,w,photoH,Number(value('photoScale',100))/100,Number(value('photoY',50))/100);
 else textBlock(template==='producto'?'Carga una fotografía de producto':'Carga una fotografía original',x+32,photoY+photoH/2-30,w-64,100,30,'#8b929e','center');
-rect(x,footerY-14,w,6,red);textBlock(value('sub',''),x,footerY+8,w,62,32,'#fff');
+qrBottom=photoY+photoH-12;rect(x,footerY-14,w,6,red);textBlock(value('sub',''),x,footerY+8,w,62,32,'#fff');
 textBlock(value('wa',''),x,footerY+72,w*.52,42,29);
 textBlock(value('ig',''),x+w*.52,footerY+75,w*.48,40,25);
 textBlock(value('dir',''),x,footerY+119,w,38,22,'#d9dce1');
@@ -33,17 +42,18 @@ textBlock(value('dir',''),x,footerY+119,w,38,22,'#d9dce1');
 const hh=170,g=8,lw=Math.min(400,w*.4),tx=x+lw+g,tw=w-lw-g,redesH=56,contH=84,catH=240,redesY=bottom-redesH,contY=redesY-g-contH,catY=contY-g-catH,heroY=top+hh+g,heroH=catY-g-heroY;
 rect(x,top,lw,hh,'#fff');if(logo)contained(logo,x+14,top+14,lw-28,hh-28);else textBlock('Carga el logo oficial',x+16,top+60,lw-32,60,22,'#555');
 rect(tx,top,tw,hh,red);textBlock(value('titulo',''),tx+20,top+14,tw-40,hh-72,Number(value('titleSize',72)));textBlock(value('sub',''),tx+20,top+hh-48,tw-40,36,24);
-rect(x,heroY,w,heroH,'#20242b');if(photo)contained(photo,x,heroY,w,heroH,Number(value('photoScale',100))/100,Number(value('photoY',50))/100);else textBlock('Carga una fotografía original',x+32,heroY+heroH/2-30,w-64,100,30,'#8b929e','center');
+qrBottom=heroY+heroH-12;rect(x,heroY,w,heroH,'#20242b');if(photo)contained(photo,x,heroY,w,heroH,Number(value('photoScale',100))/100,Number(value('photoY',50))/100);else textBlock('Carga una fotografía original',x+32,heroY+heroH/2-30,w-64,100,30,'#8b929e','center');
 const t5=(w-4*g)/5;['MATERIALES DE CONSTRUCCIÓN','HERRAMIENTAS Y MAQUINARIAS','PINTURAS Y TERMINACIONES','BAÑOS Y COCINAS','ELECTRICIDAD E ILUMINACIÓN'].forEach((l,i)=>{const cx=x+i*(t5+g);rect(cx,catY,t5,150,'#fff');if(cats[i])contained(cats[i],cx,catY,t5,150);rect(cx,catY+150,t5,6,red);textBlock(l,cx+4,catY+164,t5-8,72,22,'#fff','center')});
 rect(x,contY,w,contH,'#fff');textBlock(value('wa',''),x+24,contY+22,w*.4,44,34,ink);textBlock((value('marca','manzano')==='manzano'?'Sucursal El Manzano · ':'')+value('dir',''),x+w*.42,contY+14,w*.56-20,60,22,ink);
 rect(x,redesY,w,redesH,red);textBlock(value('ig','')+(value('marca','manzano')==='manzano'?' · Ferreterías Oviedo El Manzano · Canal de WhatsApp':''),x+16,redesY+8,w-32,44,20,'#fff','center')}
-const needs=[];if(!subject)needs.push(template==='producto'?'Falta foto de producto.':'Falta foto original.');if(!logo)needs.push('Falta logo oficial.');if(photoSource==='flow'&&template!=='producto')needs.push('Imagen de Flow: autenticidad pendiente.');const mk=value('marca','manzano');if(!value('wa','')||!value('ig','')||!value('dir',''))needs.push('Faltan datos de contacto de la marca (WhatsApp, Instagram o dirección).');if(mk==='padel'||mk==='alianza')needs.push('Pádel: usar logos originales (Padel Rocks Rapel'+(mk==='alianza'?' y Oviedo Expréss juntos en un bloque':'')+'), Fraunces, verde/rosa sin rojo; verificar contraste.');if(mk==='express')needs.push('Oviedo Expréss: rotular "Cotiza Oviedo Express" con el WhatsApp de Oviedo.');if(mk==='manzano'&&/sucursal/i.test(value('titulo','')+' '+value('sub',''))&&!/manzano/i.test(value('titulo','')+' '+value('sub','')))needs.push('El Manzano: no mencionar otras sucursales.');if(template==='catalogo'&&cats.length<5)needs.push('Faltan fotos de categorías ('+cats.length+'/5).');needs.push(...layoutErrors);
+if($('qrCanal')?.checked&&typeof qrcode==='function')drawQR(x+w-12,qrBottom,red);
+const needs=[];if(!subject)needs.push(template==='producto'?'Falta foto de producto.':'Falta foto original.');if(!logo)needs.push('Falta logo oficial.');if(photoSource==='flow'&&template!=='producto')needs.push('Imagen de Flow: autenticidad pendiente.');const mk=value('marca','manzano');if(!value('wa','')||!value('ig','')||!value('dir',''))needs.push('Faltan datos de contacto de la marca (WhatsApp, Instagram o dirección).');if(mk==='padel'||mk==='alianza')needs.push('Pádel: usar logos originales (Padel Rocks Rapel'+(mk==='alianza'?' y Oviedo Expréss juntos en un bloque':'')+'), Fraunces, verde/rosa sin rojo; verificar contraste.');if(mk==='express')needs.push('Oviedo Expréss: rotular "Cotiza Oviedo Express" con el WhatsApp de Oviedo.');if(mk==='manzano'&&/sucursal/i.test(value('titulo','')+' '+value('sub',''))&&!/manzano/i.test(value('titulo','')+' '+value('sub','')))needs.push('El Manzano: no mencionar otras sucursales.');if(template==='catalogo'&&cats.length<5)needs.push('Faltan fotos de categorías ('+cats.length+'/5).');if($('qrCanal')?.checked)needs.push('QR del Canal: probar con un teléfono antes de aprobar.');needs.push(...layoutErrors);
 $('qa').textContent=(needs.length?needs.join(' '):'Composición lista para revisar.')+' No aprobado: verifica originales, datos y legibilidad antes de publicar.';
 if($('layoutStatus'))$('layoutStatus').textContent=(story?'Historia: 250 px arriba y abajo; 60 px laterales.':'Feed: margen interior de 48 px.')+' Las fotos y logos se muestran completos, sin deformación. '+(template==='producto'?'La plantilla usa la foto de producto independiente.':'');
 if($('safeOverlay'))$('safeOverlay').hidden=!story||!$('safeGuides').checked;
 }
 async function load(input,cb){const f=input.files?.[0];if(!f)return;const url=URL.createObjectURL(f);try{const im=new Image();await new Promise((resolve,reject)=>{im.onload=resolve;im.onerror=reject;im.src=url});cb(im,f.name);draw()}catch(e){alert('No se pudo abrir la imagen')}finally{URL.revokeObjectURL(url)}}
-$('foto').onchange=()=>load($('foto'),(i,n)=>{photo=i;photoName=n;photoSource='original'});$('logo').onchange=()=>load($('logo'),(i,n)=>{logo=i;logoName=n});for(const id of ['tipo','titulo','sub','plantilla','titleSize','photoScale','photoY','logoPosition','logoScale','safeGuides','accent','wa','ig','dir'].filter(id=>$(id)))$(id).addEventListener('input',draw);
+$('foto').onchange=()=>load($('foto'),(i,n)=>{photo=i;photoName=n;photoSource='original'});$('logo').onchange=()=>load($('logo'),(i,n)=>{logo=i;logoName=n});for(const id of ['tipo','titulo','sub','plantilla','titleSize','photoScale','photoY','logoPosition','logoScale','safeGuides','qrCanal','accent','wa','ig','dir'].filter(id=>$(id)))$(id).addEventListener('input',draw);
 if($('categorias'))$('categorias').onchange=async()=>{cats=[];for(const f of [...$('categorias').files].slice(0,5)){const u=URL.createObjectURL(f);try{const im=new Image();await new Promise((a,b)=>{im.onload=a;im.onerror=b;im.src=u});cats.push(im)}catch(e){alert('No se pudo abrir '+f.name)}finally{URL.revokeObjectURL(u)}}draw()};
 if($('producto'))$('producto').onchange=()=>load($('producto'),(i,n)=>{product=i;productName=n});
 if($('resetLayout'))$('resetLayout').onclick=()=>{for(const [id,v]of Object.entries({titleSize:72,photoScale:100,photoY:50,logoPosition:'left',logoScale:100}))if($(id))$(id).value=v;draw()};

@@ -54,3 +54,9 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 
 ## Seguridad (2026-10-19)
 - `web/_headers` con CSP y cabeceras; probado local. Informe: `docs/INFORME_FINAL.md`.
+
+## QR del Canal + consola limpia (2026-10-19)
+- Opción "QR del Canal" (apagada por defecto) en todas las plantillas: librería `qrcode-generator` 1.4.4 (MIT) en `web/qrcode.js`, corrección H, zona de silencio blanca, ojos en tono oscuro de la marca, tarjeta "¡SÍGUELO!". Enlace: canal WhatsApp de El Manzano.
+- Verificación por software: zxing-cpp decodifica el QR correcto en 16/16 PNG (manzano y padel × 4 plantillas × feed/historia). OpenCV es inconsistente según el fondo (no usarlo como criterio).
+- NO VERIFICADO: lectura con un teléfono real (regla 21 de las reglas globales lo exige antes de aprobar); sin insignia central.
+- Consola: 0 errores/avisos (favicon vacío en línea). Con CSP real sirviendo desde Cloudflare: OK.

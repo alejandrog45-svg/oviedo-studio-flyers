@@ -20,5 +20,5 @@ Ninguna se declara integrada por API.
 - Nada se publica automáticamente; ficha QA con `aprobado_por_usuario:false`, `publicado:false`.
 
 ## Fase 9 · Estado
-Verificado: ver `ESTADO_SESION.md`. NO VERIFICADO: fotos/logos oficiales reales en el editor, móvil físico, legibilidad visual con material real, QR del Canal (no implementado), Banana, ChatGPT/Meta AI/Gemini.
-Próximos pasos: (1) probar con originales de Drive; (2) ejecutar la prueba Banana en Flow con el protocolo; (3) implementar QR del Canal con prueba en teléfono; (4) decidir retirar el login heredado.
+Verificado: ver `ESTADO_SESION.md`. NO VERIFICADO: fotos/logos oficiales reales en el editor, móvil físico, legibilidad visual con material real, QR del Canal con teléfono real (implementado y decodificado por software 16/16; falta prueba con teléfono), Banana, ChatGPT/Meta AI/Gemini.
+Próximos pasos: (1) probar con originales de Drive; (2) ejecutar la prueba Banana en Flow con el protocolo; (3) probar el QR del Canal con un teléfono; (4) decidir retirar el login heredado.
