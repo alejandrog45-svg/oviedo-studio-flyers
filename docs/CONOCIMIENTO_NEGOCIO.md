@@ -87,3 +87,12 @@ Por instrucción del usuario se descargaron los íconos que faltaban y se guarda
 
 ## Logos por defecto (2026-10-19)
 `web/assets/logos/` guarda el logo Oviedo blanco y negro con fondo transparente (derivados sin retoque de los originales del usuario). El editor los usa solos; los cargados por el usuario tienen prioridad. www.oviedo.cl bloquea la descarga automática (403): el logo vectorial oficial sigue pendiente.
+
+## Material, Drive y flyers aprobados (2026-10-19)
+- Originales locales: `material_fuente/` (fotos, logos, 13 logos de marcas en LOGOS_MARCAS_CONFIRMADAS, flyers de referencia, videos 2025, tótem Sucursal El Manzano y letreros Oviedo Expréss). Drive: carpetas fijas en `web/drive.js` (Fotos, Logos oficiales, Marcas confirmadas, Íconos y QR, Aprobados, Raíz).
+- Oviedo Expréss: el logo suelto completo es de 176x73 (baja resolución); el mejor recurso es el banner «Cotiza y compra aquí» (691x345), que el editor dibuja sobre la foto principal (campo «Banner Oviedo Expréss»). `OVIEDO_EXPRESS_Tu_ferreteria_mas_cerca_ORIGINAL.png` está recortado: no usar.
+- Pádel: logo Padel Rocks circular (se recorta en círculo la forma ya circular), sin QR ni rótulo del Canal de Ferreterías Oviedo, banda de marcas apagada por defecto.
+- Historia: logo, texto, íconos y QR dentro de y=250..1670 (fondos y foto sangran).
+- Íconos: Instagram y Facebook por defecto salen de la tira «ICONOS REDES» del usuario (200 px); los íconos sueltos oficiales (73-81 px) bajaban la calidad.
+- APROBADOS por el usuario (2026-10-19), QR del Canal confirmado: Conoce Feed 1080x1350, Conoce Historia 1080x1920, Aprobado Historia 1080x1920 (El Manzano) en `salidas/aprobados/2026-10-19_el-manzano/`.
+- Flow: la herramienta «Oviedo Puente Flow» (desactualizada; su entorno no puede leer archivos del editor) la elimina el usuario. Flow solo como intercambio manual: generar o elegir la foto, descargarla y cargarla en el editor. Banana: sin ejecutar.

@@ -16,7 +16,7 @@ Ninguna se declara integrada por API.
 - Sin secretos en el repo (búsqueda de claves/tokens/credenciales; `.gitignore` cubre config y claves).
 - Editor 100 % local: imágenes no salen del navegador; sin backend ni cuentas; única dependencia externa: Google Fonts.
 - Añadido `web/_headers`: nosniff, no-referrer, X-Frame-Options DENY, Permissions-Policy vacía y CSP restrictiva en `/studio.html` (solo self + Google Fonts, sin eval ni scripts externos). Probado con servidor local que aplica la CSP: exportación y fuentes OK.
-- `web/index.html` + `main.js` (login Firebase/Drive) es código heredado inactivo: sin `firebase-config.js` no funciona; `/` redirige al editor. No se tocó. Recomendación: retirarlo si no se usará (decisión del usuario; no se borra nada).
+- El login heredado (`web/index.html` + `main.js`) se retiró el 2026-10-19 por orden del usuario; `/` sigue redirigiendo al editor.
 - Nada se publica automáticamente; ficha QA con `aprobado_por_usuario:false`, `publicado:false`.
 
 ## Fase 9 · Estado

@@ -21,7 +21,11 @@ https://drive.google.com/file/d/1zUfjpIhd009TORS6f5LVyoyiMu5Fo3gy/view
 Las fotografías y logos originales se utilizan como capas protegidas. Nunca regenerar la fachada, carpas, caseta, señalética ni marcas reales. Las piezas generadas por IA requieren aprobación expresa antes de publicación.
 
 ## Publicación
-Crear un proyecto Firebase **nuevo**. No usar credenciales ni configuración de proyectos existentes. Mantener claves de proveedor exclusivamente en un backend seguro, nunca en HTML/JS público.
+Cloudflare Pages despliega web/ desde main (build xit 0). Flujo: rama claude/<tema> -> PR -> CI verde -> fusión = despliegue. No hay Firebase en este proyecto (el login heredado se retiró el 2026-10-19). Claves de proveedor, nunca en HTML/JS público.
+
+## Carpetas locales (ignoradas por git)
+- material_fuente/: originales del usuario (solo lectura, ver su README y MANIFIESTO).
+- salidas/: flyers exportados; salidas/aprobados/ los aprobados por el usuario.
 
 ## Operación
 La cuenta personal de ChatGPT, Gemini, Claude o Meta AI no implica automáticamente permisos API o llamadas gratuitas.

@@ -20,3 +20,9 @@ Cloudflare Pages: build `exit 0`, salida `web`, despliega desde `main`. Ramas de
 
 ## Conocimiento del negocio
 Plantillas Conoce/Aprobado y activos (QR oficial en web/assets): ver `docs/CONOCIMIENTO_NEGOCIO.md` (sección Plantilla Aprobado). Ver `docs/CONOCIMIENTO_NEGOCIO.md`. Estado y pendientes: `docs/ESTADO_SESION.md`. Flow/Banana: `docs/FLOW_BANANA_PROTOCOLO.md`.
+
+## Estado y rutas (cierre 2026-10-19)
+- Producción: https://oviedo-studio-flyers.pages.dev/studio.html (CSP activa). Sin Firebase ni login (retirado 2026-10-19). Selector de Drive solo lectura: `docs/DRIVE_SELECTOR.md` (NO CONECTADO hasta crear el Client ID OAuth).
+- Cuenta: GitHub `alejandrog45-svg` (usar `gh.cmd` de W:). Flujo: rama `claude/<tema>` -> PR -> CI Cloudflare verde -> fusión (el usuario autorizó fusionar directo en esta sesión; en sesiones nuevas pedir autorización).
+- Carpetas locales ignoradas por git: `material_fuente/` (originales; README y MANIFIESTO) y `salidas/` (`salidas/aprobados/` = aprobados por el usuario). No copiar originales al repo.
+- Pendientes y estado detallado: final de `docs/ESTADO_SESION.md` (sección CIERRE).
