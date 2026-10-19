@@ -1,13 +1,44 @@
 const $=id=>document.getElementById(id);const c=$('cv'),ctx=c.getContext('2d');let photo=null,logo=null,photoName='',logoName='',photoSource='original';const W=1080;let fontReady=false;
 function fitText(s,maxWidth,size){ctx.font='800 '+size+'px Montserrat, system-ui';while(ctx.measureText(s).width>maxWidth&&size>24){size-=2;ctx.font='800 '+size+'px Montserrat, system-ui'}return size}
 function centerText(s,y,size,color='#fff'){ctx.fillStyle=color;ctx.font='800 '+fitText(s,980,size)+'px Montserrat, system-ui';ctx.textAlign='center';ctx.fillText(s,W/2,y)}
-function draw(){const story=$('tipo').value==='story',height=story?1920:1350,scale=story?(W-120)/W:1,H=story?(height-500)/scale:height;c.width=W;c.height=height;ctx.fillStyle='#14161c';ctx.fillRect(0,0,W,height);if(story){ctx.translate(60,250);ctx.scale(scale,scale)}ctx.fillStyle='#e01d38';ctx.fillRect(0,0,W,15);ctx.fillStyle='#252830';ctx.fillRect(36,36,1008,155);if(logo){const k=Math.min(350/logo.width,120/logo.height);ctx.drawImage(logo,540-logo.width*k/2,53,logo.width*k,logo.height*k)}else centerText('OVIEDO · EL MANZANO',134,46);centerText($('titulo').value.toUpperCase(),258,62);ctx.fillStyle='#d81d37';ctx.fillRect(42,298,996,96);centerText($('sub').value.toUpperCase(),362,43);
-const y=425,fh=H-680;ctx.fillStyle='#2a2c33';ctx.fillRect(30,y,1020,fh);if(photo){const k=Math.min(1020/photo.width,fh/photo.height),w=photo.width*k,h=photo.height*k;ctx.drawImage(photo,540-w/2,y+(fh-h)/2,w,h)}else centerText('CARGA UNA FOTOGRAFÍA ORIGINAL',y+fh/2,36,'#b8bbc3');
-ctx.strokeStyle='#f4f4f4';ctx.lineWidth=3;ctx.strokeRect(30,y,1020,fh);ctx.fillStyle='#e01d38';ctx.fillRect(0,H-224,W,9);centerText('Carretera H66 KM 60 S/N, Las Cabras',H-142,28);centerText('+56 9 3862 3488  ·  @oviedo_elmanzano',H-83,27);$('qa').textContent=photo?'Foto cargada: '+photoName+(photoSource==='flow'?'. Resultado de Google Flow: pendiente de revisar originalidad, logos y datos. No aprobado.':'. Original intacto; revisa logos, textos, encuadre y autenticidad antes de publicar.'):'Falta fotografía original. No publicar.'}
+let product=null,productName='',layoutErrors=[];
+const value=(id,fallback)=>$(id)?.value??fallback;
+function rect(x,y,w,h,color){ctx.fillStyle=color;ctx.fillRect(x,y,w,h)}
+function contained(im,x,y,w,h,scale=1,position=.5){if(!im)return;const k=Math.min(w/im.width,h/im.height)*scale;ctx.drawImage(im,x+(w-im.width*k)/2,y+(h-im.height*k)*position,im.width*k,im.height*k)}
+function textBlock(text,x,y,width,height,size,color='#fff',align='left'){
+ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='top';let lines=[];
+for(;size>=18;size-=2){ctx.font='800 '+size+'px Montserrat, system-ui';lines=[];let line='';for(const word of text.toUpperCase().split(/\\s+/)){const candidate=line?line+' '+word:word;if(ctx.measureText(candidate).width>width&&line){lines.push(line);line=word}else line=candidate}if(line)lines.push(line);if(lines.length*size*1.18<=height&&lines.every(l=>ctx.measureText(l).width<=width))break}
+if(size<18){layoutErrors.push('Texto demasiado largo: acorta el título o mensaje.');return}
+lines.forEach((line,i)=>ctx.fillText(line,align==='center'?x+width/2:x,y+i*size*1.18));
+}
+function draw(){
+const story=value('tipo','feed')==='story',H=story?1920:1350,x=story?60:48,top=story?250:48,w=W-2*x,bottom=story?1670:1302,template=value('plantilla','institucional'),red='#d71932',ink='#111318';
+c.width=W;c.height=H;layoutErrors=[];rect(0,0,W,H,ink);ctx.textBaseline='top';
+const badgeY=top,headlineY=top+166,headlineH=template==='evento'?230:205,photoY=headlineY+headlineH+40,footerY=bottom-160,photoH=footerY-photoY-28;
+rect(x,badgeY,w,132,'#fff');
+const logoW=360*Number(value('logoScale',100))/100,logoX=value('logoPosition','left')==='center'?x+(w-logoW)/2:value('logoPosition','left')==='right'?x+w-logoW-26:x+26;
+if(logo)contained(logo,logoX,badgeY+18,logoW,96);else textBlock('Carga el logo oficial',x+28,badgeY+38,w-56,70,30,'#555');
+if(template==='evento'){rect(x,headlineY-12,w,headlineH+24,red);textBlock(value('titulo',''),x+28,headlineY+5,w-56,headlineH-15,Number(value('titleSize',72)));}
+else {rect(x,headlineY-15,70,7,red);textBlock(value('titulo',''),x,headlineY,w,headlineH,Number(value('titleSize',72)),template==='producto'?'#fff':'#fff');}
+const subject=template==='producto'?product:photo;
+rect(x,photoY,w,photoH,template==='producto'?'#fff':'#20242b');
+if(subject)contained(subject,x,photoY,w,photoH,Number(value('photoScale',100))/100,Number(value('photoY',50))/100);
+else textBlock(template==='producto'?'Carga una fotografía de producto':'Carga una fotografía original',x+32,photoY+photoH/2-30,w-64,100,30,'#8b929e','center');
+rect(x,footerY-14,w,6,red);textBlock(value('sub',''),x,footerY+8,w,62,32,'#fff');
+textBlock('+56 9 3862 3488',x,footerY+72,w*.52,42,29);
+textBlock('@oviedo_elmanzano',x+w*.52,footerY+75,w*.48,40,25);
+textBlock('Carretera H66 KM 60 S/N, Las Cabras',x,footerY+119,w,38,22,'#d9dce1');
+const needs=[];if(!subject)needs.push(template==='producto'?'Falta foto de producto.':'Falta foto original.');if(!logo)needs.push('Falta logo oficial.');if(photoSource==='flow'&&template!=='producto')needs.push('Imagen de Flow: autenticidad pendiente.');needs.push(...layoutErrors);
+$('qa').textContent=(needs.length?needs.join(' '):'Composición lista para revisar.')+' No aprobado: verifica originales, datos y legibilidad antes de publicar.';
+if($('layoutStatus'))$('layoutStatus').textContent=(story?'Historia: 250 px arriba y abajo; 60 px laterales.':'Feed: margen interior de 48 px.')+' Las fotos y logos se muestran completos, sin deformación. '+(template==='producto'?'La plantilla usa la foto de producto independiente.':'');
+if($('safeOverlay'))$('safeOverlay').hidden=!story||!$('safeGuides').checked;
+}
 async function load(input,cb){const f=input.files?.[0];if(!f)return;const url=URL.createObjectURL(f);try{const im=new Image();await new Promise((resolve,reject)=>{im.onload=resolve;im.onerror=reject;im.src=url});cb(im,f.name);draw()}catch(e){alert('No se pudo abrir la imagen')}finally{URL.revokeObjectURL(url)}}
-$('foto').onchange=()=>load($('foto'),(i,n)=>{photo=i;photoName=n;photoSource='original'});$('logo').onchange=()=>load($('logo'),(i,n)=>{logo=i;logoName=n});for(const id of ['tipo','titulo','sub'])$(id).addEventListener('input',draw);
+$('foto').onchange=()=>load($('foto'),(i,n)=>{photo=i;photoName=n;photoSource='original'});$('logo').onchange=()=>load($('logo'),(i,n)=>{logo=i;logoName=n});for(const id of ['tipo','titulo','sub','plantilla','titleSize','photoScale','photoY','logoPosition','logoScale','safeGuides'].filter(id=>$(id)))$(id).addEventListener('input',draw);
+if($('producto'))$('producto').onchange=()=>load($('producto'),(i,n)=>{product=i;productName=n});
+if($('resetLayout'))$('resetLayout').onclick=()=>{for(const [id,v]of Object.entries({titleSize:72,photoScale:100,photoY:50,logoPosition:'left',logoScale:100}))if($(id))$(id).value=v;draw()};
 let exportUrl=null;
-$('export').onclick=()=>{if(!fontReady){$('fontStatus').textContent='Montserrat no está disponible. Comprueba tu conexión y recarga antes de exportar.';return}if(!photo){alert('Carga primero una fotografía original');return}
+$('export').onclick=()=>{if(!fontReady){$('fontStatus').textContent='Montserrat no está disponible. Comprueba tu conexión y recarga antes de exportar.';return}if(!(value('plantilla','institucional')==='producto'?product:photo)){alert('Carga la fotografía requerida por la plantilla');return}if(layoutErrors.length){alert(layoutErrors.join(' '));return}
 const name='oviedo-studio-'+$('tipo').value+'.png',width=c.width,height=c.height;
 c.toBlob(blob=>{if(!blob){$('qa').textContent='No se pudo generar el PNG. Intenta nuevamente.';return}
 let panel=$('exportResult');if(!panel){panel=document.createElement('section');panel.id='exportResult';panel.setAttribute('aria-label','Archivo PNG exportado');$('cv').parentElement.append(panel)}
@@ -20,7 +51,7 @@ preview.onload=()=>{status.textContent=preview.naturalWidth===width&&preview.nat
 preview.onerror=()=>{status.textContent='No se pudo comprobar el PNG. No publicar.'};panel.replaceChildren(title,status,preview,link);preview.src=url;download(blob,name)
 },'image/png')};
 function download(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),2000)}
-$('manifest').onclick=()=>{const data={proyecto:'Oviedo Studio',fecha:new Date().toISOString(),foto_original:photoSource==='original'?photoName:null,imagen:photoName,origen_imagen:photoSource,logo_original:logoName,formato:[c.width,c.height],titulo:$('titulo').value,mensaje:$('sub').value,origenes_verificados:false,aprobado_por_usuario:false,publicado:false};download(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'ficha-qa.json')};
+$('manifest').onclick=()=>{const data={proyecto:'Oviedo Studio',version_editor:'0.2',plantilla:value('plantilla','institucional'),producto_original:productName,ajustes:{titulo_px:value('titleSize',72),foto_escala:value('photoScale',100),foto_posicion:value('photoY',50),logo_posicion:value('logoPosition','left'),logo_escala:value('logoScale',100)},fecha:new Date().toISOString(),foto_original:photoSource==='original'?photoName:null,imagen:photoName,origen_imagen:photoSource,logo_original:logoName,formato:[c.width,c.height],titulo:$('titulo').value,mensaje:$('sub').value,origenes_verificados:false,aprobado_por_usuario:false,publicado:false};download(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'ficha-qa.json')};
 
 if($('flowPrompt')){
 $('flowPrompt').onclick=()=>{$('flowBrief').value=[
