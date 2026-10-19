@@ -1,17 +1,12 @@
 # Estado real y límites
 
 - Repositorio independiente; no editar ni mover recursos de otros proyectos.
-- Aplicación web: código preparado, **no desplegada**.
-- Firebase: falta crear proyecto exclusivo, configurar Google Auth y dominio autorizado.
-- Drive: lectura de metadatos mediante consentimiento OAuth, sin movimientos ni borrados.
+- Aplicación web: **desplegada** en https://oviedo-studio-flyers.pages.dev/studio.html (Cloudflare Pages, desde `main`), con CSP en `/studio` y `/studio.html`.
+- Sin Firebase ni login: el acceso heredado (`web/index.html`, `web/main.js`, `firebase.json`) se retiró el 2026-10-19 por orden del usuario (recuperable en el historial de git).
+- Drive: selector de solo lectura en el editor (`web/drive.js`); NO CONECTADO hasta crear el Client ID OAuth (`docs/DRIVE_SELECTOR.md`). Sin movimientos ni borrados.
 - Integraciones ChatGPT, Gemini, Claude y Meta: **no conectadas por API**. Suscripciones personales no equivalen a créditos API.
-- No publicar fotografías ni logos privados en este repositorio público.
-- Los archivos originales se copian, jamás se mueven. Cotejar SHA-256 antes de aprobar.
-- Nunca poner secretos de API en frontend ni subirlos al repositorio.
+- No publicar fotografías ni logos privados en este repositorio público (`material_fuente/` y `salidas/` están ignoradas).
+- Los archivos originales se copian, jamás se mueven. Nunca poner secretos de API en frontend ni subirlos al repositorio.
 
 ## Próximos pasos
-1. Crear Firebase Spark nuevo con nombre Oviedo Studio Flyers.
-2. Registrar app web, habilitar Google Sign-In, configurar OAuth y restricciones de Drive.
-3. Incorporar la configuración pública Firebase en despliegue seguro.
-4. Probar autenticación, autorización Drive y acceso a subcarpetas.
-5. Solo entonces desplegar con Firebase CLI apuntando al proyecto **nuevo**.
+Ver la lista de pendientes al final de `docs/ESTADO_SESION.md`.
