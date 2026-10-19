@@ -65,3 +65,10 @@ Se usan las dos versiones originales: **blanco** sobre fondos de color/oscuros (
 
 ## Fotos originales adicionales (aportadas 2026-10-19; están en Drive del usuario)
 Fachada panorámica con PATIO CONSTRUCTOR, fachada vertical Sala de Ventas, vista aérea de la calle y sucursal, terraza Padel Rocks con food truck, escenario del aniversario (muestra GIFTCARD $30.000 en la foto: no usar sin confirmar que el dato sigue vigente), ferias con carpas de proveedores (aparecen personas y marcas de terceros: usar solo con autorización), banner Oviedo Express "Atendemos aquí", logo Padel Rocks 3D y QR del Canal. Fotos verticales caben completas en el hero con fondo desenfocado; para máximo impacto usar horizontales.
+
+## Más originales aportados (2026-10-19)
+- Logo Oviedo NEGRO (alta resolución, recorte ajustado) y logo blanco sobre cuadrado negro: usar el negro en fondos claros y el blanco transparente (04_LOGOS_OFICIALES) en fondos de color.
+- Letrero "Todo para tu proyecto · Sucursal El Manzano · +56 9 3862 3488 · www.oviedo.cl · ¡Te esperamos!" con 6 fotos de categoría (Construcción, Maquinaria, Herramientas, Ferretería, Terminaciones, Baño): fuente real para la plantilla Catálogo.
+- Flyer aprobado Feria Ferretera 2026 (10 % de descuento en todos los productos, 6 de noviembre, horario continuado, +15 expositores, clínicas y charlas). Son datos confirmados del evento; el horario 08:30–18:00 sigue sin agregarse.
+- Foto horizontal de la cancha de pádel con quinchos (Padel Rocks Rapel).
+Regla: los rótulos de categoría de la plantilla Catálogo son editables; deben describir la foto que acompañan (nunca asumir el orden por defecto).

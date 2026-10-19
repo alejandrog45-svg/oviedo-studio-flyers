@@ -75,3 +75,8 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Dos campos de logo (blanco / negro). Plantillas con placa blanca usan el negro; Aprobado usa el blanco. QA avisa si falta el negro sobre fondo claro. Ficha QA incluye logo_negro.
 - Hero de Aprobado: si la foto no rellena, se muestra completa sobre un fondo desenfocado de la misma foto (original intacto). Probado con fotos reales verticales y horizontales (aportadas por el usuario).
 - NO VERIFICADO: logo negro oficial (la prueba usó un recorte del banner Oviedo Express).
+
+## Catálogo con material real (2026-10-19)
+- Probado con el logo negro real, la fachada real y 5 fotos de categoría reales del letrero del usuario. Hallazgos corregidos: rótulos de categoría fijos (ahora editables con `|`) y hero con bandas oscuras (ahora rellena si recorta <15 %, si no completa con fondo desenfocado de la propia foto).
+- 50 exportaciones (5 marcas × 5 plantillas × feed/historia) sin errores.
+- NO VERIFICADO: logo blanco transparente oficial desde Drive; QR con teléfono; Banana.
