@@ -60,3 +60,13 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Verificación por software: zxing-cpp decodifica el QR correcto en 16/16 PNG (manzano y padel × 4 plantillas × feed/historia). OpenCV es inconsistente según el fondo (no usarlo como criterio).
 - NO VERIFICADO: lectura con un teléfono real (regla 21 de las reglas globales lo exige antes de aprobar); sin insignia central.
 - Consola: 0 errores/avisos (favicon vacío en línea). Con CSP real sirviendo desde Cloudflare: OK.
+
+## CIERRE · producción (2026-10-19)
+- PR #1 fusionado a `main` (788c69d) por instrucción expresa del usuario. Producción https://oviedo-studio-flyers.pages.dev verificada: cabeceras CSP y QR presentes; prueba completa (4 plantillas × feed/historia, marca El Manzano + exportación Pádel) sin errores ni avisos de consola.
+- Pendiente del usuario: probar con fotos/logos oficiales de Drive cargados en el editor; probar el QR con un teléfono; ejecutar la prueba Banana en Flow (protocolo en FLOW_BANANA_PROTOCOLO.md); decidir retirar login heredado (web/index.html, main.js).
+
+## Plantilla Aprobado (2026-10-19)
+- `web/approved.js` + integración en `studio.js/html`. Probada con la fachada real adjunta y recortes de los flyers aprobados (solo scratchpad): Historia y Feed se acercan a los aprobados (rojo, negro y verde Pádel/Alianza). 5 marcas × 5 plantillas × 2 formatos = 50 exportaciones, 0 errores de texto ni consola (con CSP).
+- Defectos corregidos al probar: rombos de "Marcas", columnas de contacto (dos WhatsApp en Pádel/Alianza), cabecera con bloque de Alianza (escala sola), título largo repartido en 2 líneas.
+- 18 activos originales copiados a Drive del proyecto (ver CONOCIMIENTO_NEGOCIO). Pruebas con esos archivos exactos desde el navegador del usuario: NO VERIFICADO (los de prueba fueron recortes de flyers).
+- NO VERIFICADO: logo Oviedo blanco transparente real y wordmark/círculo originales; QR con teléfono.
