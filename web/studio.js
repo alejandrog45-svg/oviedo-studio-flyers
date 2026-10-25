@@ -21,8 +21,8 @@ if(vis>=.85){ctx.drawImage(im,x+(w-im.width*kc)/2,y+(h-im.height*kc)*pos,im.widt
 ctx.restore()}
 function feriaDraw(story,H){
 const b=BRANDS[value('marca','manzano')];ctx.textBaseline='top';
-const r=drawFeria(ctx,{W,H,T:{tag:'SUCURSAL EL MANZANO',kicker:'SE VIENE LA',t1:'FERRETERA',t2:'FERIA',year:'2026',lugar:'EL MANZANO',wa:value('wa',b.wa),dir:value('dir',b.dir),web:b.web||'www.oviedo.cl'},I:{logo:defW||logo,photo,photoB:cats[0]||null,icons,qr:qrImg||qrDefault}});
-layoutErrors=r.errors;const needs=[...r.needs,'Plantilla Feria V4: NO VERIFICADA con originales; confirma teléfono, dirección y fechas antes de aprobar.',...layoutErrors];
+const r=drawFeria(ctx,{W,H,T:{tag:'SUCURSAL EL MANZANO',kicker:'SE VIENE LA',t1:'FERRETERA',t2:'FERIA',year:'2026',lugar:'EL MANZANO',pronto:'MUY PRONTO, MÁS INFORMACIÓN',ig:b.ig||'@oviedo_elmanzano',wa:value('wa',b.wa),dir:value('dir',b.dir),web:b.web||'www.oviedo.cl'},I:{logo:defW||logo,photo,photoB:cats[0]||null,icons,qr:qrImg||qrDefault}});
+layoutErrors=r.errors;const needs=[...r.needs,'Plantilla Feria (estilo muestra): NO VERIFICADA con originales; confirma teléfono, dirección y fechas antes de aprobar.',...layoutErrors];
 $('qa').textContent=needs.join(' ')+' No aprobado: revisión humana obligatoria.'}
 function conoceDraw(story,H){
 const mk=value('marca','manzano'),b=BRANDS[mk],up=t=>String(t||'').toUpperCase(),defs=['HERRAMIENTAS/Y ACCESORIOS','MATERIALES/DE CONSTRUCCIÓN','PLOMERÍA/Y GAS','PINTURAS/Y TERMINACIONES'],lab=String(value('catConoce','')).split('|').map(t=>t.trim()),

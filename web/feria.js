@@ -1,38 +1,59 @@
-// Plantilla "Feria" (V4, Claude): fondo oscuro, logo blanco, título medido por tinta, fachada/foto sin recortar (contain),
-// foto B pequeña + "MUY PRONTO", QR y 5 iconos de redes. Solo compone imágenes aportadas; no regenera nada.
+// Plantilla "Feria Ferretera" estilo muestra (Claude): fondo negro con brochazos rojos, logo en placa oscura,
+// cintas de brocha, placa blanca de título, foto sin recorte, barra de contacto, botón web y QR. Solo compone imágenes aportadas.
 export function drawFeria(ctx,S){
-const {W,H,T,I}=S,F='Montserrat',needs=[],errors=[],ROJO='#d71920',BL='#fff',GR='#c9c9c9',k=H/1920;
-const font=(z,w=900)=>w+' '+z+'px '+F+', system-ui';
-const ink=(s,x,base,z,col,o={})=>{ctx.font=font(z,o.w);ctx.letterSpacing=(o.sp||0)+'px';const m=ctx.measureText(s);ctx.fillStyle=col;ctx.textBaseline='alphabetic';ctx.textAlign='left';
-const px=o.right?o.right-(m.actualBoundingBoxLeft+m.actualBoundingBoxRight)+m.actualBoundingBoxLeft:x+m.actualBoundingBoxLeft;ctx.fillText(s,px,base);ctx.letterSpacing='0px';return {w:m.actualBoundingBoxLeft+m.actualBoundingBoxRight,a:m.actualBoundingBoxAscent}};
-const fit=(s,maxW,z0,w)=>{let z=z0;ctx.font=font(z,w);let m=ctx.measureText(s);while(m.actualBoundingBoxLeft+m.actualBoundingBoxRight>maxW&&z>12){z-=2;ctx.font=font(z,w);m=ctx.measureText(s)}return z};
-const contain=(im,x,y,w,h)=>{const r=Math.min(w/im.width,h/im.height);ctx.drawImage(im,x+(w-im.width*r)/2,y+(h-im.height*r)/2,im.width*r,im.height*r)};
+const {W,H,T,I}=S,F='Montserrat',needs=[],errors=[],RED='#e1141e',DEEP='#8f0b12',k=H/1920;
 const Y=v=>Math.round(v*k);
-ctx.fillStyle='#1b1b1d';ctx.fillRect(0,0,W,H);
-ctx.fillStyle='rgba(255,255,255,.035)';for(let y=0;y<H;y+=6)ctx.fillRect(0,y,W,1);
-// cabecera: logo blanco + sucursal
-if(I.logo)contain(I.logo,60,Y(250),294,Y(118));else needs.push('Falta el logo blanco.');
-ink(T.tag,0,Y(309)+10,fit(T.tag,520,30,700),BL,{w:700,sp:1.8,right:1020});
-ctx.fillStyle=ROJO;ctx.fillRect(60,Y(392),960,6);
-ink(T.kicker,60,Y(429)+30,42,GR,{w:800,sp:1.7});
-// título: FERRETERA ancho completo, FERIA + 2026 + lugar
-const z1=fit(T.t1,960,260,900),a=ink(T.t1,60,Y(846),z1,ROJO);const baseF=Y(846)-a.a-24;
-const z2=Math.max(60,Math.min(fit(T.t2,430,400,900),Math.round((baseF-Y(478))*1.35)));
-const b=ink(T.t2,60,baseF,z2,BL);const xs=60+b.w+28;
-const z3=Math.round(z2*.55),c3=ink(T.year,xs,baseF,z3,ROJO);
-ink(T.lugar,xs,baseF-c3.a-16,fit(T.lugar,1020-xs,44,800),BL,{w:800});
-// foto principal sin recortar
-ctx.fillStyle=ROJO;ctx.fillRect(0,Y(866),W,8);const py=Y(874),ph=Y(499);
-ctx.fillStyle='#101012';ctx.fillRect(0,py,W,ph);
-if(I.photo){contain(I.photo,0,py,W,ph);if(Math.max(I.photo.width,I.photo.height)<1400)needs.push('Foto principal de baja resolución.')}else needs.push('Carga la foto principal (fachada).');
-ctx.fillStyle=ROJO;ctx.fillRect(0,py+ph,W,8);
-// módulo inferior
-const my=Y(1402);
-ctx.fillStyle=BL;ctx.fillRect(60,my,116,Y(152));if(I.photoB)contain(I.photoB,64,my+4,108,Y(144));
-ink('MUY PRONTO,',200,Y(1466),54,BL,{w:900});ink('MÁS INFORMACIÓN',200,Y(1526),54,ROJO,{w:900});
-ctx.fillStyle=BL;ctx.fillRect(872,my+2,148,148);if(I.qr)contain(I.qr,878,my+8,136,136);else needs.push('Falta el QR.');
-const keys=['instagram','facebook','whatsapp','canal','ubicacion'];
-keys.forEach((n,i)=>{const cx=96+i*88,cy=Y(1610);ctx.fillStyle=BL;ctx.beginPath();ctx.arc(cx,cy,36,0,6.2832);ctx.fill();if(I.icons&&I.icons[n])contain(I.icons[n],cx-30,cy-30,60,60);else needs.push('Falta icono '+n+'.')});
-ink(T.wa,540,Y(1590),22,BL,{w:700});ink(T.dir,540,Y(1618),22,BL,{w:700});ink(T.web,540,Y(1646),22,GR,{w:700});
+const font=(z,w=900,st='normal')=>st+' '+w+' '+z+'px '+F+', system-ui';
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const fit=(s,maxW,z0,w,st)=>{let z=z0;ctx.font=font(z,w,st);while(ctx.measureText(s).width>maxW&&z>12){z-=2;ctx.font=font(z,w,st)}return z};
+const txt=(s,x,y,z,col,o={})=>{ctx.font=font(z,o.w??900,o.st);ctx.fillStyle=col;ctx.textAlign=o.align??'left';ctx.textBaseline='middle';
+if(o.sh){ctx.shadowColor='rgba(0,0,0,.55)';ctx.shadowBlur=o.sh;ctx.shadowOffsetY=o.sh/3}ctx.fillText(s,x,y);ctx.shadowColor='transparent';ctx.shadowBlur=0;ctx.shadowOffsetY=0};
+const contain=(im,x,y,w,h)=>{const r=Math.min(w/im.width,h/im.height);ctx.drawImage(im,x+(w-im.width*r)/2,y+(h-im.height*r)/2,im.width*r,im.height*r)};
+const brush=(x,y,w,h,skew,sd,c1,c2)=>{const g=ctx.createLinearGradient(x,0,x+w,0);g.addColorStop(0,c1);g.addColorStop(1,c2);ctx.fillStyle=g;ctx.beginPath();
+const sp=[.9,.35,.8,.2,.95,.5,.7,.3],n=sp.length;ctx.moveTo(x+skew,y);
+for(let i=0;i<n;i++){const t=i/(n-1);ctx.lineTo(x+skew*(1-t)-sp[(i+sd)%n]*26,y+h*t+(i%2?6:-4))}
+ctx.lineTo(x+w*.5,y+h+4);for(let i=n-1;i>=0;i--){const t=i/(n-1);ctx.lineTo(x+w+skew*(1-t)+sp[(i+sd+3)%n]*26,y+h*t+(i%2?-6:4))}
+ctx.lineTo(x+w*.5+skew,y-4);ctx.closePath();ctx.fill()};
+const streaks=(y0,y1,n,a)=>{for(let i=0;i<n;i++){const y=y0+rnd()*(y1-y0),x=-80+rnd()*W,l=160+rnd()*520,t=2+rnd()*14,sk=40+rnd()*90;
+ctx.fillStyle='rgba(225,20,30,'+(a*(.4+rnd()*.6))+')';ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+l,y-sk);ctx.lineTo(x+l+8,y-sk+t);ctx.lineTo(x+6,y+t);ctx.closePath();ctx.fill()}};
+// fondo
+ctx.fillStyle='#0b0b0c';ctx.fillRect(0,0,W,H);
+for(const [yy,hh,sd] of [[0,Y(430),1],[Y(1640),Y(280),4]]){ctx.save();ctx.beginPath();ctx.rect(0,yy,W,hh);ctx.clip();
+brush(-60,yy+hh*.1,W*.7,hh*.5,90,sd,RED,DEEP);brush(W*.35,yy+hh*.3,W*.8,hh*.55,-80,sd+2,DEEP,RED);streaks(yy,yy+hh,46,.8);ctx.restore()}
+const vg=ctx.createLinearGradient(0,0,0,H);vg.addColorStop(0,'rgba(0,0,0,.15)');vg.addColorStop(.5,'rgba(0,0,0,.5)');vg.addColorStop(1,'rgba(0,0,0,.15)');ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);
+// logo en placa oscura
+const lw=540,lh=Y(250),lx=(W-lw)/2,ly=Y(120);
+ctx.fillStyle='#0a0a0b';ctx.beginPath();ctx.roundRect(lx,ly,lw,lh,28);ctx.fill();
+if(I.logo)contain(I.logo,lx+22,ly+16,lw-44,lh-32);else needs.push('Falta el logo blanco.');
+// cinta SE VIENE LA
+const ry=Y(430),rh=Y(170);ctx.save();ctx.translate(W/2,ry+rh/2);ctx.rotate(-.045);ctx.translate(-W/2,-(ry+rh/2));
+brush(10,ry,W-20,rh,70,2,RED,DEEP);txt(T.kicker,W/2+6,ry+rh/2+4,fit(T.kicker,W-250,Y(135),900,'italic'),'#fff',{align:'center',st:'italic',sh:10});ctx.restore();
+// placa blanca de título
+const py=Y(640),ph=Y(190);ctx.fillStyle='#fff';ctx.beginPath();ctx.roundRect(24,py,W-48,ph,34);ctx.fill();
+ctx.strokeStyle=RED;ctx.lineWidth=5;ctx.beginPath();ctx.roundRect(40,py+14,W-80,ph-28,26);ctx.stroke();
+txt(T.t2,66,py+ph*.46,fit(T.t2,400,Y(150),900),RED,{st:'italic'});
+const x2=520,w2=W-56-x2;txt(T.t1,x2,py+ph*.40,fit(T.t1,w2,Y(112),900),'#0b0b0c');
+const sub=T.lugar+' '+T.year,zs=fit(sub,w2-130,Y(46),900);txt(sub,x2+w2/2,py+ph*.78,zs,'#0b0b0c',{align:'center'});
+ctx.fillStyle='#0b0b0c';ctx.fillRect(x2,py+ph*.78-2,34,5);ctx.fillRect(x2+w2-34,py+ph*.78-2,34,5);
+// foto principal sin recorte
+const fy=py+ph+Y(8),fh=Y(500);ctx.fillStyle='#101012';ctx.fillRect(0,fy,W,fh);
+if(I.photo){contain(I.photo,0,fy,W,fh);if(Math.max(I.photo.width,I.photo.height)<1400)needs.push('Foto principal de baja resolución.')}else needs.push('Carga la foto principal (fachada).');
+// cinta MUY PRONTO
+const my=fy+fh+Y(20),mh=Y(160);ctx.save();ctx.translate(W/2,my+mh/2);ctx.rotate(-.035);ctx.translate(-W/2,-(my+mh/2));
+brush(14,my,W-28,mh,60,5,RED,DEEP);txt(T.pronto,W/2+4,my+mh/2+4,fit(T.pronto,W-200,Y(84),900,'italic'),'#fff',{align:'center',st:'italic',sh:10});ctx.restore();
+// barra de contacto
+const by=my+mh+Y(40),bh=Y(120);ctx.fillStyle='#0a0a0b';ctx.fillRect(0,by,W,bh);ctx.fillStyle=RED;ctx.fillRect(0,by,W,4);ctx.fillRect(0,by+bh-4,W,4);
+const ic=(n,x,s)=>{if(I.icons&&I.icons[n])contain(I.icons[n],x,by+(bh-s)/2,s,s);else needs.push('Falta icono '+n+'.')};
+ic('ubicacion',30,Y(76));txt('SUCURSAL EL MANZANO',112,by+bh*.34,fit('SUCURSAL EL MANZANO',290,Y(30),900),'#fff');txt(T.dir,112,by+bh*.68,fit(T.dir,300,Y(24),600),'#e8e8e8',{w:600});
+ctx.fillStyle='rgba(255,255,255,.35)';ctx.fillRect(432,by+16,3,bh-32);ctx.fillRect(752,by+16,3,bh-32);
+ic('whatsapp',456,Y(70));txt(T.wa,540,by+bh/2,fit(T.wa,200,Y(32),900),'#fff');
+ic('instagram',772,Y(70));txt(T.ig,856,by+bh/2,fit(T.ig,200,Y(26),700),'#fff',{w:700});
+// base: facebook + canal, botón web, QR
+const wy=by+bh+Y(40),wh=Y(80),ww=380,wx=(W-ww)/2;
+ctx.fillStyle=RED;ctx.beginPath();ctx.roundRect(wx,wy,ww,wh,wh/2);ctx.fill();
+ctx.strokeStyle='#fff';ctx.lineWidth=3;const gx=wx+52,gy=wy+wh/2,gr=wh*.28;ctx.beginPath();ctx.arc(gx,gy,gr,0,6.2832);ctx.moveTo(gx-gr,gy);ctx.lineTo(gx+gr,gy);ctx.moveTo(gx,gy-gr);ctx.lineTo(gx,gy+gr);ctx.ellipse(gx,gy,gr*.45,gr,0,0,6.2832);ctx.stroke();
+txt(T.web,wx+92,wy+wh/2+2,fit(T.web,ww-120,Y(38),900),'#fff');
+for(const [n,x] of [['facebook',40],['canal',40+Y(92)]]){ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x+Y(36),wy+wh/2,Y(38),0,6.2832);ctx.fill();if(I.icons&&I.icons[n])contain(I.icons[n],x+Y(8),wy+wh/2-Y(28),Y(56),Y(56));else needs.push('Falta icono '+n+'.')}
+const qs=Y(140);ctx.fillStyle='#fff';ctx.fillRect(W-40-qs,wy+wh/2-qs/2,qs,qs);if(I.qr)contain(I.qr,W-40-qs+6,wy+wh/2-qs/2+6,qs-12,qs-12);else needs.push('Falta el QR.');
 return {needs,errors};
 }
