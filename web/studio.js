@@ -1,5 +1,6 @@
 import {drawApproved,rank,iconKey} from './approved.js';
 import {drawConoce} from './conoce.js';
+import {drawFeria} from './feria.js';
 const $=id=>document.getElementById(id);const c=$('cv'),ctx=c.getContext('2d');let photo=null,logo=null,photoName='',logoName='',photoSource='original';const W=1080;let fontReady=false,FONT='Montserrat',BG='#111318';
 const PIE_PAD='Cómo llegar: busca «Padelrocksrapel» en Google Maps · Despacho en el día · Retiro 15:30 hrs',PIE_MZ='Cómo llegar: busca «Oviedo Ferreterias El Manzano» en Google Maps';
 const BRANDS={manzano:{tag:'EL MANZANO',label:'Oviedo · Sucursal El Manzano',font:'Montserrat',bg:'#111318',accent:'#e1141e',wa:'+56 9 3862 3488',ig:'@oviedo_elmanzano',dir:'Carretera H66 KM 60 S/N, Las Cabras',lugar:'SUCURSAL OVIEDO EL MANZANO',waLabel:'WhatsApp',fb:'/oviedoelmanzano',web:'www.oviedo.cl',pie:PIE_MZ,tema:'rojo'},express:{tag:'EXPRESS',label:'Oviedo Expréss (Cotiza Oviedo Express)',font:'Montserrat',bg:'#111318',accent:'#e1141e',wa:'+56 9 3862 3488',ig:'@padel_rocks_rapel',dir:'Sector El Estero s/n, Las Cabras',lugar:'OVIEDO EXPRESS',waLabel:'Cotiza Oviedo Express',fb:'',web:'www.oviedo.cl',pie:PIE_PAD,tema:'rojo'},padel:{tag:'PADEL ROCKS',label:'Pádel Oviedo · Padel Rocks Rapel',font:'Fraunces',bg:'#0b3d26',accent:'#14693f',wa:'+56 9 5923 7808 · +56 9 3862 3488',ig:'@padel_rocks_rapel',dir:'Sector El Estero s/n, Las Cabras',lugar:'PADEL OVIEDO',waLabel:'Reservas pádel',wa2Label:'Cotiza Oviedo Express',fb:'',web:'',pie:PIE_PAD,tema:'verde'},alianza:{tag:'ALIANZA',label:'Alianza Padel Rocks Rapel · Oviedo Expréss',font:'Montserrat',bg:'#111318',accent:'#e1141e',wa:'+56 9 5923 7808 · +56 9 3862 3488',ig:'@padel_rocks_rapel',dir:'Sector El Estero s/n, Las Cabras',lugar:'PADEL OVIEDO',waLabel:'Reservas pádel',wa2Label:'Cotiza Oviedo Express',fb:'',web:'',pie:PIE_PAD,tema:'verde'},feria:{tag:'EL MANZANO',label:'Feria Ferretera · Oviedo El Manzano',font:'Montserrat',bg:'#111318',accent:'#e1141e',wa:'+56 9 3862 3488',ig:'@oviedo_elmanzano',dir:'Carretera H66 KM 60 S/N, Las Cabras',lugar:'SUCURSAL OVIEDO EL MANZANO',waLabel:'WhatsApp',fb:'/oviedoelmanzano',web:'www.oviedo.cl',pie:PIE_MZ,tema:'rojo'}};
@@ -18,6 +19,11 @@ lines.forEach((line,i)=>ctx.fillText(line,align==='center'?x+width/2:x,y+i*size*
 function fitHero(im,x,y,w,h,pos,sc){const kc=Math.max(w/im.width,h/im.height),vis=(w/(im.width*kc))*(h/(im.height*kc));ctx.save();ctx.beginPath();ctx.rect(x,y,w,h);ctx.clip();
 if(vis>=.85){ctx.drawImage(im,x+(w-im.width*kc)/2,y+(h-im.height*kc)*pos,im.width*kc,im.height*kc)}else{ctx.filter='blur(22px)';const k=Math.max((w+60)/im.width,(h+60)/im.height);ctx.drawImage(im,x+(w-im.width*k)/2,y+(h-im.height*k)/2,im.width*k,im.height*k);ctx.filter='none';ctx.fillStyle='rgba(0,0,0,.45)';ctx.fillRect(x,y,w,h);contained(im,x,y,w,h,sc,pos)}
 ctx.restore()}
+function feriaDraw(story,H){
+const b=BRANDS[value('marca','manzano')];ctx.textBaseline='top';
+const r=drawFeria(ctx,{W,H,T:{tag:'SUCURSAL EL MANZANO',kicker:'SE VIENE LA',t1:'FERRETERA',t2:'FERIA',year:'2026',lugar:'EL MANZANO',wa:value('wa',b.wa),dir:value('dir',b.dir),web:b.web||'www.oviedo.cl'},I:{logo:defW||logo,photo,photoB:cats[0]||null,icons,qr:qrImg||qrDefault}});
+layoutErrors=r.errors;const needs=[...r.needs,'Plantilla Feria V4: NO VERIFICADA con originales; confirma teléfono, dirección y fechas antes de aprobar.',...layoutErrors];
+$('qa').textContent=needs.join(' ')+' No aprobado: revisión humana obligatoria.'}
 function conoceDraw(story,H){
 const mk=value('marca','manzano'),b=BRANDS[mk],up=t=>String(t||'').toUpperCase(),defs=['HERRAMIENTAS/Y ACCESORIOS','MATERIALES/DE CONSTRUCCIÓN','PLOMERÍA/Y GAS','PINTURAS/Y TERMINACIONES'],lab=String(value('catConoce','')).split('|').map(t=>t.trim()),
 O={photoY:Number(value('photoY',50))/100,focoX:Number(value('heroX',50))/100,zoom:Number(value('heroZoom',100))},qr=$('qrCanal')?.checked&&!$('qrHide')?.checked?(qrImg||qrDefault):null;
@@ -48,6 +54,7 @@ const story=value('tipo','feed')==='story',H=story?1920:1350,x=story?60:48,top=s
 c.width=W;c.height=H;layoutErrors=[];rect(0,0,W,H,ink);ctx.textBaseline='top';
 if(template==='aprobado'){approvedDraw(story,H);return}
 if(template==='conoce'){conoceDraw(story,H);return}
+if(template==='feria'){feriaDraw(story,H);return}
 let subject;if(template!=='catalogo'){const badgeY=top,headlineY=top+166,headlineH=template==='evento'?230:205,photoY=headlineY+headlineH+40,footerY=bottom-160,photoH=footerY-photoY-28;
 rect(x,badgeY,w,132,'#fff');
 const logoW=360*Number(value('logoScale',100))/100,logoX=value('logoPosition','left')==='center'?x+(w-logoW)/2:value('logoPosition','left')==='right'?x+w-logoW-26:x+26;
