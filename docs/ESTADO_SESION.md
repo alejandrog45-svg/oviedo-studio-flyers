@@ -137,3 +137,10 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Repo: árbol limpio, raíz solo con docs/, material_fuente/ (ignorada), salidas/ (ignorada), scripts/, web/, .gitignore, CLAUDE.md, README.md.
 - Rutas documentadas verificadas en W: (LEEME_RUTAS.md e INVENTARIO_ACCESOS.html actualizados; respaldos previos en _respaldos\oviedo-studio-flyers_2026-10-19\).
 - NO VERIFICADO: selector de Drive con Google real; QR por teléfono lo confirmó el usuario.
+
+## CIERRE 2026-10-25 (Claude, sesión buzón multi-IA)
+- NUEVO: plantilla "Feria Ferretera V4" (`web/feria.js`, opción en `studio.html`, `feriaDraw` en `studio.js`). PR #16, rama `claude/feria-v4`, CI Cloudflare verde. SIN fusionar a main (pide autorización del dueño).
+- Verificado: renderiza en Chromium (story 1080x1920) con logo blanco, QR e iconos reales, sin errores de consola. NO VERIFICADO: con fotos originales (fachada y foto B) y en móvil.
+- Pendientes: probar con fotos reales; confirmar teléfono/dirección contra el flyer original; esperar PNG corregidos de ChatGPT (sin cuota hasta ~4am) y revisarlos; fusionar PR #16 si el dueño aprueba.
+- Buzón Drive: mi fuente V4 en `claude_a_chatgpt` (`..._CLAUDE-V4-RESPUESTA-CLAUDE.md`); generador Apps Script alternativo (nunca ejecutado).
+- Nexus: solo lectura; Gemini ~20 solicitudes/día, ChatGPT/Claude/Meta = modo asistido manual.

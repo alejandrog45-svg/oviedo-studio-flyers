@@ -96,3 +96,6 @@ Por instrucción del usuario se descargaron los íconos que faltaban y se guarda
 - Íconos: Instagram y Facebook por defecto salen de la tira «ICONOS REDES» del usuario (200 px); los íconos sueltos oficiales (73-81 px) bajaban la calidad.
 - APROBADOS por el usuario (2026-10-19), QR del Canal confirmado: Conoce Feed 1080x1350, Conoce Historia 1080x1920, Aprobado Historia 1080x1920 (El Manzano) en `salidas/aprobados/2026-10-19_el-manzano/`.
 - Flow: la herramienta «Oviedo Puente Flow» (desactualizada; su entorno no puede leer archivos del editor) la elimina el usuario. Flow solo como intercambio manual: generar o elegir la foto, descargarla y cargarla en el editor. Banana: sin ejecutar.
+
+## Plantilla "Feria Ferretera V4" (2026-10-25, borrador)
+Fondo oscuro, logo BLANCO, "SE VIENE LA / FERIA / FERRETERA / 2026 / EL MANZANO", foto principal sin recorte (contain), foto B pequeña + "MUY PRONTO, MÁS INFORMACIÓN", QR oficial, 5 iconos de redes y contacto (+56 9 3862 3488, Carretera H66 KM 60 S/N, Las Cabras, www.oviedo.cl). Datos de contacto copiados del flyer de referencia: verificar antes de aprobar. No incluye fechas.

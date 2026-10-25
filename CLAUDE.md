@@ -19,7 +19,7 @@ Sin relación con PLAN_MAESTRO_OVIEDO.
 Cloudflare Pages: build `exit 0`, salida `web`, despliega desde `main`. Ramas de trabajo → PR → merge a main = deploy.
 
 ## Conocimiento del negocio
-Plantillas Conoce/Aprobado y activos (QR oficial en web/assets): ver `docs/CONOCIMIENTO_NEGOCIO.md` (sección Plantilla Aprobado). Ver `docs/CONOCIMIENTO_NEGOCIO.md`. Estado y pendientes: `docs/ESTADO_SESION.md`. Flow/Banana: `docs/FLOW_BANANA_PROTOCOLO.md`.
+Plantillas Conoce/Aprobado/Feria V4 (borrador, PR #16) y activos (QR oficial en web/assets): ver `docs/CONOCIMIENTO_NEGOCIO.md` (sección Plantilla Aprobado). Ver `docs/CONOCIMIENTO_NEGOCIO.md`. Estado y pendientes: `docs/ESTADO_SESION.md`. Flow/Banana: `docs/FLOW_BANANA_PROTOCOLO.md`.
 
 ## Estado y rutas (cierre 2026-10-19)
 - Producción: https://oviedo-studio-flyers.pages.dev/studio.html (CSP activa). Sin Firebase ni login (retirado 2026-10-19). Selector de Drive solo lectura: `docs/DRIVE_SELECTOR.md` (NO CONECTADO hasta crear el Client ID OAuth).
