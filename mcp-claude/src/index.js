@@ -35,7 +35,14 @@ export default {
    if(body.params?.arguments && Object.keys(body.params.arguments).length)return reply(error(id,-32602,"Arguments not allowed"));
    try{
     let out;
-    if(name==="consultar_estado"){const b=await github("/branches/main");out={repository:REPO,branch:"main",commit:b.commit.sha,source:"GitHub public repository",editor:"https://oviedo-studio-flyers.pages.dev/studio",sitesOriginal:"private, not connected",syncedWithSites:false,mode:"read-only"};}
+    if(name==="consultar_estado"){
+     try {
+      const b=await github("/branches/main");
+      out={repository:REPO,branch:"main",commit:b.commit.sha,source:"GitHub live API",snapshot:false,editor:"https://oviedo-studio-flyers.pages.dev/studio",sitesOriginal:"private, not connected",syncedWithSites:false,mode:"read-only"};
+     } catch (lookupError) {
+      out={repository:REPO,branch:"main",commit:ROUTES_SNAPSHOT_SHA,source:"Verified GitHub commit snapshot",snapshot:true,snapshotCommit:ROUTES_SNAPSHOT_SHA,warning:"Live GitHub branch lookup unavailable: "+String(lookupError.message)+". Commit shown is historical, not current.",editor:"https://oviedo-studio-flyers.pages.dev/studio",sitesOriginal:"private, not connected",syncedWithSites:false,mode:"read-only"};
+     }
+    }
     else {
       try {
        const tree=await github("/git/trees/main?recursive=1");
