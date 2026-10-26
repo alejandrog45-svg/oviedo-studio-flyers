@@ -2,6 +2,8 @@
 // Required secret: OVIEDO_MCP_TOKEN, set through Cloudflare Secrets, NEVER in GitHub.
 const REPO = "alejandrog45-svg/oviedo-studio-flyers";
 const GH = "https://api.github.com/repos/" + REPO;
+const ROUTES_SNAPSHOT_SHA = "467d43a38478acb2c1021a69238beee60b25824f";
+const ROUTES_SNAPSHOT = ["docs/ALOJAMIENTO_SIN_FIREBASE.md","docs/CONOCIMIENTO_NEGOCIO.md","docs/DRIVE_SELECTOR.md","docs/ESTADO_SESION.md","docs/ESTADO_Y_SEGURIDAD.md","docs/FLOW_BANANA_PROTOCOLO.md","docs/INFORME_FINAL.md","docs/PROMPT_CLAUDE_CODE_PC.md","docs/PUENTE_IA.md","web/_headers","web/_redirects","web/approved.js","web/assets/iconos/README.md","web/assets/iconos/icono_canal_whatsapp.png","web/assets/iconos/icono_facebook.png","web/assets/iconos/icono_instagram.png","web/assets/iconos/icono_ubicacion.png","web/assets/iconos/icono_whatsapp.png","web/assets/logos/README.md","web/assets/logos/logo_oviedo_blanco.png","web/assets/logos/logo_oviedo_negro.png","web/assets/qr_canal_oviedo.png","web/conoce.js","web/drive-config.js","web/drive.js","web/qrcode.js","web/studio.html","web/studio.js"];
 const HEADERS = {"content-type":"application/json","cache-control":"no-store","x-content-type-options":"nosniff"};
 const TOOLS = [
  {name:"consultar_estado",description:"Consulta el estado público versionado del proyecto Oviedo Studio sin modificar archivos.",inputSchema:{type:"object",properties:{},additionalProperties:false}},
@@ -34,7 +36,14 @@ export default {
    try{
     let out;
     if(name==="consultar_estado"){const b=await github("/branches/main");out={repository:REPO,branch:"main",commit:b.commit.sha,source:"GitHub public repository",editor:"https://oviedo-studio-flyers.pages.dev/studio",sitesOriginal:"private, not connected",syncedWithSites:false,mode:"read-only"};}
-    else {const tree=await github("/git/trees/main?recursive=1");out={repository:REPO,branch:"main",paths:tree.tree.filter(f=>f.type==="blob").map(f=>f.path).filter(p=>p.startsWith("web/")||p.startsWith("docs/")),source:"GitHub",syncedWithSites:false};}
+    else {
+      try {
+       const tree=await github("/git/trees/main?recursive=1");
+       out={repository:REPO,branch:"main",paths:tree.tree.filter(f=>f.type==="blob").map(f=>f.path).filter(p=>p.startsWith("web/")||p.startsWith("docs/")),source:"GitHub live API",snapshot:false,syncedWithSites:false};
+      } catch (lookupError) {
+       out={repository:REPO,branch:"main",paths:ROUTES_SNAPSHOT,source:"Verified GitHub tree snapshot",snapshot:true,snapshotCommit:ROUTES_SNAPSHOT_SHA,warning:"Live GitHub tree lookup unavailable: "+String(lookupError.message)+". Paths are historical, not current.",syncedWithSites:false};
+      }
+    }
     return reply({jsonrpc:"2.0",id,result:{content:[{type:"text",text:JSON.stringify(out)}],isError:false}});
    }catch(e){return reply({jsonrpc:"2.0",id,result:{content:[{type:"text",text:"Read-only lookup failed: "+String(e.message)}],isError:true}});}
   }
