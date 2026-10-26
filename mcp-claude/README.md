@@ -1,0 +1,21 @@
+# Oviedo Studio · Claude MCP aislado (solo lectura)
+
+Este Worker es **independiente** de ChatGPT Sites y de Cloudflare Pages V1. No conecta ni sincroniza el código de Sites. Solo consulta el repositorio público en GitHub. No proporciona edición, exportación ni escritura.
+
+## Seguridad
+- Crear el secret OVIEDO_MCP_TOKEN en Cloudflare Worker; un valor aleatorio de al menos 32 caracteres. No escribirlo en el repositorio ni enviarlo al chat.
+- Todas las solicitudes a /mcp requieren Authorization: Bearer <token>. Sin secreto configurado el servidor devuelve 503; sin token devuelve 401.
+- Herramientas: consultar_estado y consultar_rutas. Solo GET a GitHub API, sin permisos de escritura.
+- Antes de registrar en Claude verificar que su modalidad de conector acepta encabezados personalizados Bearer. Si no, implementar OAuth compatible en nuevo Worker; nunca desactivar la autenticación.
+
+## Desplegar (solo con aprobación explícita)
+En la carpeta mcp-claude ejecutar npx wrangler deploy, después configurar el secreto con wrangler secret put OVIEDO_MCP_TOKEN. No ejecutar deploy en la rama main ni modificar Pages.
+
+## Pruebas obligatorias
+1. Sin token: 401. Token incorrecto: 401. Sin secret: 503.
+2. initialize: respuesta MCP con capacidades tools. tools/list: exactamente dos herramientas.
+3. tools/call consultar_estado: GitHub devuelve SHA real. consultar_rutas: rutas reales.
+4. tools/call desconocida: error. Método no soportado: error.
+5. Claude: conectar desde cuenta alejandrog45, ejecutar ambas herramientas, capturar evidencia y verificar que ninguna operación edita archivos.
+
+NO VERIFICADO: compatibilidad exacta del cliente web Claude con esta autenticación; no afirmar integrado antes de prueba real.
