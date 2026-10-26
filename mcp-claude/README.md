@@ -19,3 +19,11 @@ En la carpeta mcp-claude ejecutar npx wrangler deploy, después configurar el se
 5. Claude: conectar desde cuenta alejandrog45, ejecutar ambas herramientas, capturar evidencia y verificar que ninguna operación edita archivos.
 
 NO VERIFICADO: compatibilidad exacta del cliente web Claude con esta autenticación; no afirmar integrado antes de prueba real.
+
+## Continuación 2026-10-26 — control de consistencia (sin desplegar)
+Commit del código: c9d9193caa327adeca3c7490fd2a0a228c1746ee
+- consultar_rutas: obtiene el commit de main con /branches/main y consulta /git/trees/{commit}; devuelve commit junto con las rutas. Cada herramienta puede ejecutarse en instantes diferentes: comparar ambos SHA; si son diferentes, repetir solo cuando sea necesario.
+- Ambas usan opcionalmente GITHUB_READ_TOKEN como secreto de Cloudflare para reducir 403 por limitación de API anónima. Crear un token GitHub de solo lectura y alcance mínimo, si es necesario y autorizado; guardarlo SOLO en secretos de Worker. El repositorio es público: no permitir Contents:write ni acciones de escritura.
+- Si las lecturas fallan, respuesta marcada snapshot:true con SHA histórico y advertencia. No confundir con sincronización de Sites.
+- NO se ha verificado este cambio con el Worker publicado ni Claude. No promover, fusionar ni reemplazar el despliegue de producción sin autorización explícita.
+- Consultas previas: Claude conectado con encabezado Authorization Bearer. No alterar OVIEDO_MCP_TOKEN.
