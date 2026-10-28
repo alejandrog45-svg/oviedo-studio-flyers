@@ -27,3 +27,12 @@ Commit del código: c9d9193caa327adeca3c7490fd2a0a228c1746ee
 - Si las lecturas fallan, respuesta marcada snapshot:true con SHA histórico y advertencia. No confundir con sincronización de Sites.
 - NO se ha verificado este cambio con el Worker publicado ni Claude. No promover, fusionar ni reemplazar el despliegue de producción sin autorización explícita.
 - Consultas previas: Claude conectado con encabezado Authorization Bearer. No alterar OVIEDO_MCP_TOKEN.
+
+## Actualizacion 2026-10-28 — codigo real desplegado y service binding V2 (version 2de1fd50)
+- Este repo estaba desactualizado: el Worker publicado `studio-claude-mcp` (version 0.3.0) ya incluia `v2Status()`, que comprueba 5 rutas de V2 (`https://nexus-oviedo-studio-v2.alejandrog45.workers.dev`) y las devuelve en el bloque `v2` de ambas herramientas. `src/index.js` es ahora ese codigo real.
+- Problema resuelto: la comprobacion daba 404 falso en todas las rutas porque un Worker no puede llamar por `fetch` al `workers.dev` de otro Worker de la misma cuenta (error 1042). Solucion: service binding `V2` -> `nexus-oviedo-studio-v2` (`[[services]]` en `wrangler.toml`); `v2Status(env)` usa `env.V2.fetch` y sigue las redirecciones. Sin binding conserva el `fetch` anterior.
+- Verificado por el conector tras el despliegue: `/`, `/nexus`, `/compositor/studio.html`, `/compositor/materiales.html` y `/conexiones.html` devuelven 200.
+- `wrangler.toml` ahora refleja el Worker real: `name = "studio-claude-mcp"` (antes `oviedo-studio-claude-mcp`) y `compatibility_date = "2026-10-26"`. Los secretos `OVIEDO_MCP_TOKEN` y `GITHUB_READ_TOKEN` siguen solo en Cloudflare Secrets; nada de esto los incluye.
+- Volver atras en Cloudflare: Implementaciones -> restaurar `cae9101b` (original, con el 404 falso) o `528f79fe` (solo binding).
+- Desplegar sigue siendo solo con aprobacion explicita: con `name = "studio-claude-mcp"` un `wrangler deploy` reemplazaria el Worker de produccion.
+- Copia de respaldo local (fuera del repo): `W:\PROYECTOS CUENTA ALEJANDROG45\_respaldos\mcp-worker-desplegado_2026-10-28\`.

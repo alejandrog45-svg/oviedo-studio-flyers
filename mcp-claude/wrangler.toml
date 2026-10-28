@@ -1,4 +1,11 @@
-name = "oviedo-studio-claude-mcp"
+name = "studio-claude-mcp"
 main = "src/index.js"
-compatibility_date = "2026-10-20"
+compatibility_date = "2026-10-26"
 workers_dev = true
+
+# Service binding creado en el panel de Cloudflare el 2026-10-28 (version 2de1fd50 del Worker).
+# Un Worker no puede hacer fetch al workers.dev de otro Worker de la misma cuenta (404, error 1042):
+# v2Status() usa env.V2.fetch(...) en su lugar.
+[[services]]
+binding = "V2"
+service = "nexus-oviedo-studio-v2"
