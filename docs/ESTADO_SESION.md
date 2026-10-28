@@ -137,3 +137,20 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Repo: árbol limpio, raíz solo con docs/, material_fuente/ (ignorada), salidas/ (ignorada), scripts/, web/, .gitignore, CLAUDE.md, README.md.
 - Rutas documentadas verificadas en W: (LEEME_RUTAS.md e INVENTARIO_ACCESOS.html actualizados; respaldos previos en _respaldos\oviedo-studio-flyers_2026-10-19\).
 - NO VERIFICADO: selector de Drive con Google real; QR por teléfono lo confirmó el usuario.
+
+## Auditoría individual 3 — 2026-10-27
+
+- Estado del repositorio: `main` local = `origin/main`, commit `467d43a`; no hay divergencia local/remota.
+- Cuenta confirmada en lectura: GitHub `alejandrog45-svg`; proyecto aislado de `NEXUS_OVIEDO_STUDIO_V2`, `Nexus-Multi-IA-Studio` y `PLAN_MAESTRO_OVIEDO`.
+- Producción documentada: Cloudflare Pages `oviedo-studio-flyers`, salida `web`, editor `/studio.html`.
+- El selector Drive del proyecto raíz continúa documentado como solo lectura y separado del OAuth nuevo de V2; no se afirma conexión real aquí sin prueba específica.
+- El piloto local `PILOTO_GEMINI_GENUINO` fue auditado como fuente de calidad. No se movió `entregas_vigentes`, `material_fuente`, `finales` ni `respaldos`.
+- 30 Python del piloto pasan análisis de sintaxis. Las pruebas que generan fixtures/exportaciones no se ejecutaron para mantener esta auditoría sin escrituras adicionales.
+- Pendiente: revisar uno a uno el contenido candidato y preparar una tabla de movimientos; ningún movimiento está autorizado ni realizado.
+
+## Actualización 2026-10-28 — V1 sin cambios; V2 independiente
+
+- **V1 (este repo, Cloudflare Pages `oviedo-studio-flyers`)**: sin cambios; `main` = `467d43a` hasta este PR (solo documentos).
+- **V2** (`NEXUS_OVIEDO_STUDIO_V2`, Worker `nexus-oviedo-studio-v2`) quedó publicada e independiente del Site de ChatGPT el 28-10; versión activa `67dea2a6`. Detalle y rutas: `W:\PROYECTOS CUENTA ALEJANDROG45\LEEME_RUTAS.md`.
+- **Conector MCP de este proyecto** (Worker `studio-claude-mcp`): código real versionado en la rama del PR #17 (`claude/studio-v2-mcp-isolado-2026-10-26`, borrador), con blindaje contra despliegues accidentales (`mcp-claude/wrangler.toml` seguro; producción solo con `wrangler.produccion.toml`).
+- Sin cambios en `web/`: este PR no altera lo que sirve Pages.
