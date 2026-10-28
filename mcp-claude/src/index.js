@@ -1,5 +1,7 @@
 // Cloudflare Worker: MCP read-only; independent from the private ChatGPT Sites deployment.
 // Required secret: OVIEDO_MCP_TOKEN (optional second: OVIEDO_MCP_TOKEN_CHATGPT), set through Cloudflare Secrets, NEVER in GitHub.
+import { handleOAuth, isAccessToken } from "./oauth.js";
+
 const REPO = "alejandrog45-svg/oviedo-studio-flyers";
 const GH = "https://api.github.com/repos/" + REPO;
 const ROUTES_SNAPSHOT_SHA = "467d43a38478acb2c1021a69238beee60b25824f";
@@ -154,6 +156,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // OAuth propio (ChatGPT web): metadatos, registro, /authorize y /token.
+    const oauth = await handleOAuth(request, env, url);
+
+    if (oauth) {
+      return oauth;
+    }
+
     if (url.pathname !== "/mcp") {
       return reply({ error: "not_found" }, 404);
     }
@@ -174,7 +183,8 @@ export default {
       !auth.startsWith("Bearer ") ||
       !(
         eq(auth.slice(7), env.OVIEDO_MCP_TOKEN) ||
-        (secondOk && eq(auth.slice(7), second))
+        (secondOk && eq(auth.slice(7), second)) ||
+        (await isAccessToken(env, auth.slice(7)))
       )
     ) {
       return reply(
@@ -182,7 +192,9 @@ export default {
         401,
         {
           "www-authenticate":
-            'Bearer realm="Oviedo Studio MCP"'
+            'Bearer realm="Oviedo Studio MCP", resource_metadata="' +
+            url.origin +
+            '/.well-known/oauth-protected-resource"'
         }
       );
     }
