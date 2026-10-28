@@ -1,5 +1,5 @@
 // Cloudflare Worker: MCP read-only; independent from the private ChatGPT Sites deployment.
-// Required secret: OVIEDO_MCP_TOKEN, set through Cloudflare Secrets, NEVER in GitHub.
+// Required secret: OVIEDO_MCP_TOKEN (optional second: OVIEDO_MCP_TOKEN_CHATGPT), set through Cloudflare Secrets, NEVER in GitHub.
 const REPO = "alejandrog45-svg/oviedo-studio-flyers";
 const GH = "https://api.github.com/repos/" + REPO;
 const ROUTES_SNAPSHOT_SHA = "467d43a38478acb2c1021a69238beee60b25824f";
@@ -166,10 +166,16 @@ export default {
     }
 
     const auth = request.headers.get("authorization") || "";
+    // Segundo token opcional (ChatGPT/Codex): permite rotar uno sin cortar al otro.
+    const second = env.OVIEDO_MCP_TOKEN_CHATGPT;
+    const secondOk = !!second && second.length >= 32;
 
     if (
       !auth.startsWith("Bearer ") ||
-      !eq(auth.slice(7), env.OVIEDO_MCP_TOKEN)
+      !(
+        eq(auth.slice(7), env.OVIEDO_MCP_TOKEN) ||
+        (secondOk && eq(auth.slice(7), second))
+      )
     ) {
       return reply(
         { error: "unauthorized" },
