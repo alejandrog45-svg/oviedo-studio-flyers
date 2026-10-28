@@ -26,3 +26,15 @@ Plantillas Conoce/Aprobado y activos (QR oficial en web/assets): ver `docs/CONOC
 - Cuenta: GitHub `alejandrog45-svg` (usar `gh.cmd` de W:). Flujo: rama `claude/<tema>` -> PR -> CI Cloudflare verde -> fusión (el usuario autorizó fusionar directo en esta sesión; en sesiones nuevas pedir autorización).
 - Carpetas locales ignoradas por git: `material_fuente/` (originales; README y MANIFIESTO) y `salidas/` (`salidas/aprobados/` = aprobados por el usuario). No copiar originales al repo.
 - Pendientes y estado detallado: final de `docs/ESTADO_SESION.md` (sección CIERRE).
+
+## Auditoría documental 2026-10-27
+
+La auditoría transversal de W: está registrada en `W:\PROYECTOS CUENTA ALEJANDROG45\docs\INVENTARIO_DOCUMENTACION_2026-10-27.md`. Este proyecto sigue aislado de Plan Maestro y Nexus. No mover el piloto, `material_fuente`, `entregas_vigentes` ni respaldos hasta verificar referencias internas.
+
+## Auditoría individual 3 — 2026-10-27
+
+- Git verificado en lectura: identidad `alejandrog45@gmail.com`, cuenta GitHub `alejandrog45-svg`, rama `main` igual a `origin/main` (`467d43a`, 0 adelante/0 atrás).
+- El raíz publica Cloudflare Pages `oviedo-studio-flyers` desde `web/`; el Worker V2 `nexus-oviedo-studio-v2` es otra capa y no se mezcla con este repo.
+- El piloto `PROTOTIPO DE PRUEBA NO EDITAR PROYECTO\PILOTO_GEMINI_GENUINO` es una carpeta local no seguida por este repo raíz. Se conserva intacto; es fuente de criterios y entregas, no destino de movimientos.
+- 30 archivos Python del piloto pasan análisis de sintaxis. Sus regresiones generativas no se ejecutaron porque crean fixtures/exportaciones en disco; queda pendiente una ejecución controlada si se autoriza.
+- No se movió, borró, renombró, publicó, desplegó ni modificó ningún material o rama en esta auditoría.
