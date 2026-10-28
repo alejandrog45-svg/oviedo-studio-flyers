@@ -1,0 +1,15 @@
+# ===================== BLINDAJE: NO DESPLEGAR A PRODUCCION DESDE AQUI =====================
+# Esta es la configuracion SEGURA por defecto. Su "name" NO es el Worker de produccion.
+# Un "wrangler deploy" accidental crearia un Worker de prueba aparte (sin secretos, sin
+# direccion publica) y NO tocaria el conector real "studio-claude-mcp".
+# La configuracion fiel a produccion esta en wrangler.produccion.toml: solo con --config
+# explicito y orden expresa del dueño. Guardia: node --test mcp-claude/test/blindaje.test.mjs
+name = "oviedo-studio-claude-mcp-prueba"
+main = "src/index.js"
+compatibility_date = "2026-10-26"
+workers_dev = false
+
+# Service binding V2 (mismo que produccion): v2Status() usa env.V2.fetch(...).
+[[services]]
+binding = "V2"
+service = "nexus-oviedo-studio-v2"

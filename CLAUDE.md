@@ -26,3 +26,9 @@ Plantillas Conoce/Aprobado y activos (QR oficial en web/assets): ver `docs/CONOC
 - Cuenta: GitHub `alejandrog45-svg` (usar `gh.cmd` de W:). Flujo: rama `claude/<tema>` -> PR -> CI Cloudflare verde -> fusión (el usuario autorizó fusionar directo en esta sesión; en sesiones nuevas pedir autorización).
 - Carpetas locales ignoradas por git: `material_fuente/` (originales; README y MANIFIESTO) y `salidas/` (`salidas/aprobados/` = aprobados por el usuario). No copiar originales al repo.
 - Pendientes y estado detallado: final de `docs/ESTADO_SESION.md` (sección CIERRE).
+
+## Blindaje del conector MCP (mcp-claude) — 2026-10-28
+- Worker de produccion: `studio-claude-mcp` (secretos `OVIEDO_MCP_TOKEN` y `GITHUB_READ_TOKEN` solo en Cloudflare). NUNCA `wrangler deploy` ni `wrangler secret` desde `mcp-claude/` sin orden expresa del dueño.
+- `mcp-claude/wrangler.toml` es seguro por defecto (nombre de prueba, sin workers.dev). La config de produccion es `mcp-claude/wrangler.produccion.toml`, solo con `--config`.
+- Antes de tocar `mcp-claude/`: `node --test mcp-claude/test/blindaje.test.mjs` (debe pasar). El codigo del repo es el desplegado: se cambia primero aqui, con prueba, y despues, con orden, en Cloudflare.
+- Volver atras en Cloudflare: Implementaciones -> `cae9101b` (original), `528f79fe` (binding) o `2de1fd50` (actual).
