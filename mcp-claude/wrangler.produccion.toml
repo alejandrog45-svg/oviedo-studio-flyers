@@ -1,0 +1,17 @@
+# ===================== PRODUCCION: SOLO CON ORDEN EXPRESA DEL DUEÑO =====================
+# Refleja el Worker REAL "studio-claude-mcp" (conector MCP con secretos OVIEDO_MCP_TOKEN y
+# GITHUB_READ_TOKEN, guardados solo en Cloudflare Secrets). Un deploy con este archivo
+# REEMPLAZA el codigo en produccion.
+# Uso permitido unicamente asi, con orden expresa y despues de anotar la version activa:
+#   npx wrangler deploy --config wrangler.produccion.toml
+# Version activa al 2026-10-28: 2de1fd50. Volver atras: Cloudflare -> Implementaciones ->
+# restaurar cae9101b (original) o 528f79fe (solo binding).
+# Nunca "wrangler secret put/delete" desde aqui sin orden expresa. Nunca secretos en el repo.
+name = "studio-claude-mcp"
+main = "src/index.js"
+compatibility_date = "2026-10-26"
+workers_dev = true
+
+[[services]]
+binding = "V2"
+service = "nexus-oviedo-studio-v2"
