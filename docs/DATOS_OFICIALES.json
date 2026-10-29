@@ -1,0 +1,18 @@
+{
+  "version": "2026-10-29",
+  "nota": "Datos de contacto oficiales de Oviedo El Manzano para verificar flyers. Fuente principal: perfil de WhatsApp Business (captura del dueno, 29-10-2026). No inventar ni tomar numeros de otros flyers.",
+  "telefonos_validos": [
+    { "numero": "+56 9 3862 3488", "uso": "WhatsApp / cotizar / canal / bot", "fuente": "Perfil de WhatsApp Business (29-10-2026); docs/CONOCIMIENTO_NEGOCIO.md" },
+    { "numero": "+56 9 5923 7808", "uso": "Reservas de padel", "fuente": "docs/CONOCIMIENTO_NEGOCIO.md; reglas globales de flyers (Drive)" }
+  ],
+  "telefonos_eliminados": ["+56 22 7120437", "+56 9 3376 7585"],
+  "telefonos_con_error_conocido": [
+    { "numero": "+56 9 3862 3448", "motivo": "Digitos cambiados (el oficial termina en 3488)" },
+    { "numero": "+56 9 8362 3548", "motivo": "Numero equivocado en un flyer de la Feria" }
+  ],
+  "instagram": "@oviedo_elmanzano",
+  "facebook": "/oviedoelmanzano",
+  "web": "www.oviedo.cl",
+  "direccion": "Carretera H66 KM 60 S/N, Las Cabras",
+  "textos_con_error_conocido": ["Ferreteris"]
+}

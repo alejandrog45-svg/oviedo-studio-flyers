@@ -154,3 +154,10 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - **V2** (`NEXUS_OVIEDO_STUDIO_V2`, Worker `nexus-oviedo-studio-v2`) quedó publicada e independiente del Site de ChatGPT el 28-10; versión activa `67dea2a6`. Detalle y rutas: `W:\PROYECTOS CUENTA ALEJANDROG45\LEEME_RUTAS.md`.
 - **Conector MCP de este proyecto** (Worker `studio-claude-mcp`): código real versionado en la rama del PR #17 (`claude/studio-v2-mcp-isolado-2026-10-26`, borrador), con blindaje contra despliegues accidentales (`mcp-claude/wrangler.toml` seguro; producción solo con `wrangler.produccion.toml`).
 - Sin cambios en `web/`: este PR no altera lo que sirve Pages.
+
+## 2026-10-29 · Verificador de datos de flyers (rama claude/verificar-datos-flyer)
+- Nuevo scripts/verificar_datos_flyer.ps1 + docs/DATOS_OFICIALES.json + docs/VERIFICACION_DATOS_FLYER.md: compara el teléfono y textos de cualquier flyer con los datos oficiales (OCR local de Windows, sin IA ni claves).
+- Teléfono oficial: +56 9 3862 3488 (perfil de WhatsApp Business). Se hallaron fuera del repo 3 imágenes de la Feria 2026 con +56 9 3862 3448 / +56 9 8362 3548 y «Ferreteris» (pendiente de corregir por el dueño); ningún archivo del repo ni del editor está afectado.
+- Sin cambios en web/ (editor publicado igual). Antirretroceso respetado: no se tocó la exportación, la fuente ni los textos de revisión humana.
+- NO integrado: auditoría con IA (Gemini) en el panel; requeriría una clave creada por el dueño y cambiar el principio «sin envío a servicios de IA».
+
