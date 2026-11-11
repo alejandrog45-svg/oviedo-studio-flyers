@@ -95,6 +95,6 @@ La auditoría transversal de W: está registrada en `W:\PROYECTOS CUENTA ALEJAND
 - Corrección 2026-11-06: entrada = solo botón "Entrar" (sin login ni stock en vivo); ver `LEEME_RUTAS.md` (W:).
 
 ## Cierre video post aniversario — 2026-11-11
-- Carpeta `salidas\video post aniversario\` ordenada (ver su `MANIFIESTO.md`). Guiones v7.1/v7.2/v7.3 (video de 49,29 s) y sus MP3 en `audios_borrador\v7_49s\`: 48,68 / 45,48 / 45,96 s. 24 marcas, "noveno aniversario de Oviedo Ferreterías El Manzano" al abrir y cerrar; pronunciación: Hiundái, eme te ese, Fe-mo-glás, Wéser (con w).
+- Carpeta `NEXUS_OVIEDO_STUDIO_V2\material\video_post_aniversario\` ordenada (ver su `MANIFIESTO.md`). Guiones v7.1/v7.2/v7.3 (video de 49,29 s) y sus MP3 en `audios_borrador\v7_49s\`: 48,68 / 45,48 / 45,96 s. 24 marcas, "noveno aniversario de Oviedo Ferreterías El Manzano" al abrir y cerrar; pronunciación: Hiundái, eme te ese, Fe-mo-glás, Wéser (con w).
 - HECHO-VERIFICADO: generación y conversión. PENDIENTE DEL DUEÑO: escuchar, elegir versión y, si quiere, ajustar v7.2/v7.3 al largo exacto con ffmpeg. Drive: carpeta "Oviedo Studio - Audios". Sin commit, push ni deploy (la carpeta salidas\ está fuera de git).
 - APROBADO por el dueño 2026-11-11: las tres versiones v7 (guion y audio) se usarán las tres. No existe video de 49,29 s: era solo el largo objetivo del audio; el audio se adaptará después al video original (88,96 s, intacto). Cierre documentado en Drive, GitHub (docs/) y `LEEME_RUTAS.md`.

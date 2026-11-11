@@ -192,4 +192,4 @@ Ninguna mejora, integración, conexión, publicación, commit, push o deploy se 
 
 ## Cierre video post aniversario — 2026-11-11
 - HECHO-VERIFICADO: guiones v7.1/v7.2/v7.3 y MP3 (48,68 / 45,48 / 45,96 s), una toma continua, voz Mako estilo radio chilena. APROBADOS por el dueño (se usan las tres). 24 marcas; noveno aniversario al abrir y cerrar; pronunciación Hiundái, eme te ese, Fe-mo-glás, Wéser.
-- No existe video de 49,29 s (era el largo objetivo del audio). El audio se adaptará después al video original de 88,96 s. Archivos de audio: solo local (`salidas/video post aniversario/audios_borrador/v7_49s/`, fuera de git) y Drive "Oviedo Studio - Audios". Guiones y cierre: `docs/video_post_aniversario/`.
+- No existe video de 49,29 s (era el largo objetivo del audio). El audio se adaptará después al video original de 88,96 s. Archivos de audio: solo local (`NEXUS_OVIEDO_STUDIO_V2\material\video_post_aniversario/audios_borrador/v7_49s/`, fuera de git) y Drive "Oviedo Studio - Audios". Guiones y cierre: `docs/video_post_aniversario/`.
