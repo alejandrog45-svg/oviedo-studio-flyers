@@ -1,0 +1,2 @@
+# Video post aniversario 2026 — guiones v7 (APROBADOS 2026-11-11)
+Guiones v7.1, v7.2 y v7.3 (24 marcas; noveno aniversario de Oviedo Ferreterías El Manzano al abrir y cerrar). Aprobados por el dueño; se usan las tres. Audios MP3 (48,68 / 45,48 / 45,96 s): solo en local (`salidas/`, fuera de git) y Drive "Oviedo Studio - Audios". Pendiente: adaptar el audio al video original de 88,96 s (no existe video de 49,29 s). Detalle: `CIERRE_VIDEO_POST_ANIVERSARIO_2026-11-11.md`.
