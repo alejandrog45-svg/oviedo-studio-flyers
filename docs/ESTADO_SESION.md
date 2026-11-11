@@ -161,3 +161,35 @@ Bloqueo de exportación sin Montserrat, comprobación de dimensiones PNG, textos
 - Sin cambios en web/ (editor publicado igual). Antirretroceso respetado: no se tocó la exportación, la fuente ni los textos de revisión humana.
 - NO integrado: auditoría con IA (Gemini) en el panel; requeriría una clave creada por el dueño y cambiar el principio «sin envío a servicios de IA».
 
+## Anexo de continuidad — 2026-11-01
+- Este anexo supersede solo los estados operativos anteriores cuando haya conflicto; conserva el historial y no borra pendientes históricos.
+- Rutas vigentes: `material_fuente\MATERIAL ANIVERSARIO 2026\`, `material_fuente\CAMPANAS_2026\`, `salidas\FLAYER CONFIRMADOS Y CORREGIDOS 01-11-2026\`, `salidas\GIF_MARCAS_2026-11-01\` y `salidas\locucion_aniversario_2026\`.
+- ACTUALIZACION 05-11-2026: ahora son 24 marcas (se sumó FullSello a última hora); el GIF vigente pasa a ser `salidas\GIF_MARCAS_2026-11-05\GIF_MARCAS_FERIA_OVIEDO_2026_24_MARCAS.gif` (lo genera Codex; ver `docs\CIERRE_CODEX_GIF24_2026-11-05.md`). Los flyers NO se actualizaron (siguen mostrando 23). Lo siguiente (23 marcas) es historial del 01-11.
+- El GIF vigente era el de 23 marcas; el GIF de 20 marcas queda obsoleto. Flyers aprobados y corregidos están en la carpeta fechada 01-11-2026.
+- Cuenta W: `alejandrog45@gmail.com`; GitHub `alejandrog45-svg`; repo aislado de Nexus V2 y Plan Maestro. Git local: `main...origin/main`, último commit `0e9af58`; la carpeta de piloto sin seguimiento permanece intacta.
+- Gemini CLI, el puente local y el Worker `nexus-oviedo-studio-v2` no son integraciones de este repo. Este proyecto sigue siendo Cloudflare Pages `oviedo-studio-flyers`, sin Firebase ni login heredado.
+- Seguridad: no se tocaron originales, secretos, ramas remotas, despliegues ni materiales. Respaldos: `..\_respaldos\docs-antes-2026-11-01\`.
+
+
+## Regla de autorización — 2026-11-02
+Ninguna mejora, integración, conexión, publicación, commit, push o deploy se ejecuta sin orden expresa concreta del dueño. Toda autorización queda limitada a la tarea indicada.
+
+## Cierre operativo — 2026-11-03
+- Estado: HECHO-VERIFICADO; sin pendientes operativos para esta entrega.
+- Se guardó la variante aprobada 1080×1350 PNG en `salidas/aprobados/2026-11-03_feria-instagram/` y se dejó `MANIFIESTO.md` con hash y rutas.
+- Se creó la carpeta Drive `2026-11-03_feria-instagram-aprobado` y se cargó el PNG final; la URL está en `CLAUDE.md` y el manifiesto.
+- Verificación: el archivo local y el entregable aprobado corresponden a la misma variante; no se tocaron originales ni históricos.
+- No se hicieron commit, push, publicación ni deploy. Próximo paso seguro: usar el archivo aprobado para publicación solo con orden expresa del dueño.
+
+## Audio Feria 2026 — 2026-11-03
+- Estado: HECHO-VERIFICADO; dos variantes nuevas guardadas en `salidas/locucion_aniversario_2026/14_FERIA_2026_INSTAGRAM_40S/`.
+- Ambas están verificadas a 40,0 segundos exactos, WAV mono 24 kHz/16-bit, con guion documentado y manifiesto.
+- Variante A: venta directa. Variante B: celebración/convocatoria. No se tocaron audios anteriores, originales ni el flyer.
+- No se hizo commit, push, publicación ni deploy. Próximo paso seguro: escucha humana comparativa y elección de A o B, si el dueño lo solicita.
+- Guardado adicional verificado en Drive: carpeta `https://drive.google.com/drive/folders/1uxT3w7iE69g2ODKmJZ4tDck2jjknyjAc`, con ambos audios y manifiesto.
+- Documentación operativa completada y sincronizada: guía única `salidas/locucion_aniversario_2026/GUIA_USO_IA_Y_CONEXIONES.md` y README dentro de la entrega; ambas copias quedaron cargadas en Drive junto a los audios y manifiestos.
+
+
+## Cierre video post aniversario — 2026-11-11
+- HECHO-VERIFICADO: guiones v7.1/v7.2/v7.3 y MP3 (48,68 / 45,48 / 45,96 s), una toma continua, voz Mako estilo radio chilena. APROBADOS por el dueño (se usan las tres). 24 marcas; noveno aniversario al abrir y cerrar; pronunciación Hiundái, eme te ese, Fe-mo-glás, Wéser.
+- No existe video de 49,29 s (era el largo objetivo del audio). El audio se adaptará después al video original de 88,96 s. Archivos de audio: solo local (`salidas/video post aniversario/audios_borrador/v7_49s/`, fuera de git) y Drive "Oviedo Studio - Audios". Guiones y cierre: `docs/video_post_aniversario/`.
