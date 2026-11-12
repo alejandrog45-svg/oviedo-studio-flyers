@@ -43,7 +43,7 @@ La auditoría transversal de W: está registrada en `W:\PROYECTOS CUENTA ALEJAND
 
 - Cuenta y aislamiento: W:, `alejandrog45@gmail.com`, GitHub `alejandrog45-svg`; este proyecto sigue separado de Nexus V2, Plan Maestro, E: y Firebase.
 - Git local verificado: `main...origin/main`, último commit local `0e9af58`; quedan sin seguimiento `PROTOTIPO DE PRUEBA NO EDITAR PROYECTO/`. No se publica ni se elimina sin revisión del dueño.
-- Rutas vigentes de trabajo: `material_fuente\MATERIAL ANIVERSARIO 2026\`, `material_fuente\CAMPANAS_2026\`, `salidas\FLAYER CONFIRMADOS Y CORREGIDOS 01-11-2026\`, `salidas\GIF_MARCAS_2026-11-01\` y `salidas\locucion_aniversario_2026\`.
+- Rutas vigentes de trabajo: `material_fuente\MATERIAL ANIVERSARIO 2026\`, `material_fuente\CAMPANAS_2026\`, `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\FLAYER CONFIRMADOS Y CORREGIDOS 01-11-2026\`, `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\GIF_MARCAS_2026-11-01\` y `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\locucion_aniversario_2026\`.
 - Control de originales: el GIF de 20 marcas queda obsoleto; el conjunto vigente es el de 23 marcas. No regenerar ni publicar piezas sin aprobación expresa.
 - Gemini CLI, puente local y Worker `nexus-oviedo-studio-v2` son infraestructura aparte; no se consideran integración de este repo ni se mezclan con Cloudflare Pages `oviedo-studio-flyers`.
 - Respaldo de esta actualización: `_respaldos\docs-antes-2026-11-01\`.
@@ -55,18 +55,18 @@ La auditoría transversal de W: está registrada en `W:\PROYECTOS CUENTA ALEJAND
 
 ## Audio nuevo para flyer aprobado — 2026-11-03
 - Estado: HECHO-VERIFICADO. Se crearon dos variantes nuevas de locución para Feria Ferretera El Manzano 2026, ambas WAV de 40,0 segundos exactos.
-- Ruta: `salidas/locucion_aniversario_2026/14_FERIA_2026_INSTAGRAM_40S/`.
+- Ruta: `_ARCHIVO_CAMPANAS/ANIVERSARIO_2026/local/OVIEDO_STUDIO_FLYERS/salidas/locucion_aniversario_2026/14_FERIA_2026_INSTAGRAM_40S/`.
 - Variante A: `feria_2026_instagram_40s_variante_A_venta_directa.wav`; variante B: `feria_2026_instagram_40s_variante_B_fiesta_manazano.wav`.
 - Guiones y control: `guion_variante_A_venta_directa.txt`, `guion_variante_B_fiesta_manazano.txt` y `MANIFIESTO.md` en la misma carpeta.
 - QA: 40,0 s exactos, WAV mono 24 kHz/16-bit; originales e históricos preservados. No se ejecutó publicación, commit, push ni deploy.
 - Registro Drive: carpeta `https://drive.google.com/drive/folders/1uxT3w7iE69g2ODKmJZ4tDck2jjknyjAc`; ambos WAV y el manifiesto quedaron cargados allí.
-- Guía operativa para Gemini, Meta y Claude: `salidas/locucion_aniversario_2026/GUIA_USO_IA_Y_CONEXIONES.md`; el punto de entrada debe permanecer disponible también en Drive.
+- Guía operativa para Gemini, Meta y Claude: `_ARCHIVO_CAMPANAS/ANIVERSARIO_2026/local/OVIEDO_STUDIO_FLYERS/salidas/locucion_aniversario_2026/GUIA_USO_IA_Y_CONEXIONES.md`; el punto de entrada debe permanecer disponible también en Drive.
 - Guía sincronizada en Drive: `https://drive.google.com/file/d/1DXxYttW5ujfuRBdKkdhmy7OPM0zrtvUR/view?usp=drivesdk`; README: `https://drive.google.com/file/d/15AdXdKBIl9en1tQmb9r9us3xIiyA6cvw/view?usp=drivesdk`.
 
 ## Cierre de entrega aprobada — 2026-11-03
 - Estado: HECHO-VERIFICADO. El usuario aprobó la variante Feria Ferretera El Manzano 2026 para Instagram Feed en 1080×1350 PNG.
-- Ruta local: `salidas/aprobados/2026-11-03_feria-instagram/feria_2026_instagram_feed_1080x1350_aprobado_header_foto_ancho_completo.png`.
-- Manifiesto local: `salidas/aprobados/2026-11-03_feria-instagram/MANIFIESTO.md`.
+- Ruta local: `_ARCHIVO_CAMPANAS/ANIVERSARIO_2026/local/OVIEDO_STUDIO_FLYERS/salidas/aprobados/2026-11-03_feria-instagram/feria_2026_instagram_feed_1080x1350_aprobado_header_foto_ancho_completo.png`.
+- Manifiesto local: `_ARCHIVO_CAMPANAS/ANIVERSARIO_2026/local/OVIEDO_STUDIO_FLYERS/salidas/aprobados/2026-11-03_feria-instagram/MANIFIESTO.md`.
 - Drive: carpeta `https://drive.google.com/drive/folders/1fqOhR_fU4aF2OF8eyrWCgUBC9j3OlGrN`; archivo `https://drive.google.com/file/d/1t-2ZCsEwty8DlO3ltm1CyzNhwRlg6-rT/view?usp=drivesdk`.
 - Verificación: SHA-256 `64BD46BEEAA42ECE2D52DDC5FF90B28BFB05968D6D1CB6718FA7FD7B19222CA4`; originales, históricos y diseño aprobado preservados.
 - No se ejecutaron commit, push, publicación ni deploy.
@@ -82,19 +82,19 @@ La auditoría transversal de W: está registrada en `W:\PROYECTOS CUENTA ALEJAND
 - Se sumó FullSello a última hora: ahora son **24** marcas (antes 23). Reemplaza lo dicho arriba sobre "el conjunto vigente es el de 23".
 - Logo: `material_fuente\MATERIAL ANIVERSARIO 2026\LOGOS_MARCAS_CONFIRMADAS\logo_fullsello_USUARIO_20261105.jpeg`; control: `CONTROL_LOGOS_MARCAS_2026.csv/.md` (24 participantes).
 - GIF de 24 y Drive: los hace Codex por el canal IA; ver `docs\ORDEN_CODEX_GIF24_DRIVE_2026-11-05.md` (en `W:\PROYECTOS CUENTA ALEJANDROG45\docs\`) y su cierre. Flyers NO actualizados (siguen con 23). Respaldo: `C:\ARCHIVO_IA\backups\gif24_2026-11-05\`.
-- Cierre 2026-11-05 (HECHO-VERIFICADO): GIF de 24 en `salidas\GIF_MARCAS_2026-11-05\` (SHA-256 `89EAD497E166A497640E5F326DA9887D5D4995B8C732E84493850B30FA0BA693`, igual en Drive MARCAS_CONFIRMADAS, que tiene 24 logos `logo_*`); este es el GIF vigente, los de 20 y 23 son historial. Detalle y hashes: `salidas\GIF_MARCAS_2026-11-05\MANIFIESTO.md`. No se hizo commit, push ni deploy.
+- Cierre 2026-11-05 (HECHO-VERIFICADO): GIF de 24 en `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\GIF_MARCAS_2026-11-05\` (SHA-256 `89EAD497E166A497640E5F326DA9887D5D4995B8C732E84493850B30FA0BA693`, igual en Drive MARCAS_CONFIRMADAS, que tiene 24 logos `logo_*`); este es el GIF vigente, los de 20 y 23 son historial. Detalle y hashes: `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\GIF_MARCAS_2026-11-05\MANIFIESTO.md`. No se hizo commit, push ni deploy.
 
 ## Informe stock/precio por marca — 2026-11-05
-- HECHO-VERIFICADO: `salidas\informe_stock_marcas_2026-11-05\informe_stock_marcas.html` (24 marcas, 2460 filas, datos ERP en vivo 19:37, filtro por marca e impresión por marca). Código en `informe_stock_marcas\`. Copia en Drive `11_CAMPANAS\FERIA_ANIVERSARIO_2026\INFORME_STOCK_MARCAS_2026-11-05\`. Detalle en `LEEME_RUTAS.md` (W:). No se hizo commit, push ni deploy.
+- HECHO-VERIFICADO: `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\informe_stock_marcas_2026-11-05\informe_stock_marcas.html` (24 marcas, 2460 filas, datos ERP en vivo 19:37, filtro por marca e impresión por marca). Código en `informe_stock_marcas\`. Copia en Drive `11_CAMPANAS\FERIA_ANIVERSARIO_2026\INFORME_STOCK_MARCAS_2026-11-05\`. Detalle en `LEEME_RUTAS.md` (W:). No se hizo commit, push ni deploy.
 
 ## Informe de marcas v2 — 2026-11-06
 - Ver `LEEME_RUTAS.md` (W:) sección "Informe de marcas v2". Foto con datos: solo dueño. ZIP sin datos: login Justime (diseño tipo Justime), descarga real ERP NO VERIFICADA. Descuento 10% PROVISORIO. v2 no subida a Drive. Sin commit/push/deploy; E: solo lectura.
 
 ## Informe de marcas v3 — entrega final 2026-11-06
-- Archivo único `salidas\informe_stock_marcas_2026-11-05\informe_stock_marcas.html` (login estilo Justime + "Solo entregar"; precios estáticos, stock en vivo opcional vía `informe_stock_marcas\app\servidor.ps1`, NO VERIFICADO con ERP real). Diseño aprobado por el dueño: mantenerlo. Detalle en `LEEME_RUTAS.md` (W:). Sin commit/push/deploy; contiene precios: no publicar.
+- Archivo único `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\informe_stock_marcas_2026-11-05\informe_stock_marcas.html` (login estilo Justime + "Solo entregar"; precios estáticos, stock en vivo opcional vía `informe_stock_marcas\app\servidor.ps1`, NO VERIFICADO con ERP real). Diseño aprobado por el dueño: mantenerlo. Detalle en `LEEME_RUTAS.md` (W:). Sin commit/push/deploy; contiene precios: no publicar.
 - Corrección 2026-11-06: entrada = solo botón "Entrar" (sin login ni stock en vivo); ver `LEEME_RUTAS.md` (W:).
 
 ## Cierre video post aniversario — 2026-11-11
-- Carpeta `NEXUS_OVIEDO_STUDIO_V2\material\video_post_aniversario\` ordenada (ver su `MANIFIESTO.md`). Guiones v7.1/v7.2/v7.3 (video de 49,29 s) y sus MP3 en `audios_borrador\v7_49s\`: 48,68 / 45,48 / 45,96 s. 24 marcas, "noveno aniversario de Oviedo Ferreterías El Manzano" al abrir y cerrar; pronunciación: Hiundái, eme te ese, Fe-mo-glás, Wéser (con w).
+- Carpeta `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\NEXUS_OVIEDO_STUDIO_V2\material\video_post_aniversario\` ordenada (ver su `MANIFIESTO.md`). Guiones v7.1/v7.2/v7.3 (video de 49,29 s) y sus MP3 en `audios_borrador\v7_49s\`: 48,68 / 45,48 / 45,96 s. 24 marcas, "noveno aniversario de Oviedo Ferreterías El Manzano" al abrir y cerrar; pronunciación: Hiundái, eme te ese, Fe-mo-glás, Wéser (con w).
 - HECHO-VERIFICADO: generación y conversión. PENDIENTE DEL DUEÑO: escuchar, elegir versión y, si quiere, ajustar v7.2/v7.3 al largo exacto con ffmpeg. Drive: carpeta "Oviedo Studio - Audios". Sin commit, push ni deploy (la carpeta salidas\ está fuera de git).
 - APROBADO por el dueño 2026-11-11: las tres versiones v7 (guion y audio) se usarán las tres. No existe video de 49,29 s: era solo el largo objetivo del audio; el audio se adaptará después al video original (88,96 s, intacto). Cierre documentado en Drive, GitHub (docs/) y `LEEME_RUTAS.md`.
