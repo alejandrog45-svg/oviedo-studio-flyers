@@ -29,7 +29,7 @@ Plantillas Conoce/Aprobado y activos (QR oficial en web/assets): ver `docs/CONOC
 
 ## Auditoría documental 2026-10-27
 
-La auditoría transversal de W: está registrada en `W:\PROYECTOS CUENTA ALEJANDROG45\docs\INVENTARIO_DOCUMENTACION_2026-10-27.md`. Este proyecto sigue aislado de Plan Maestro y Nexus. No mover el piloto, `material_fuente`, `entregas_vigentes` ni respaldos hasta verificar referencias internas.
+La auditoría transversal de W: está registrada en `W:\PROYECTOS CUENTA ALEJANDROG45\_ARCHIVO_DOCUMENTAL\2026-11-12_docs_historicos\INVENTARIO_DOCUMENTACION_2026-10-27.md`. Este proyecto sigue aislado de Plan Maestro y Nexus. No mover el piloto, `material_fuente`, `entregas_vigentes` ni respaldos hasta verificar referencias internas.
 
 ## Auditoría individual 3 — 2026-10-27
 
@@ -80,21 +80,21 @@ La auditoría transversal de W: está registrada en `W:\PROYECTOS CUENTA ALEJAND
 
 ## 24 marcas (FullSello) — 2026-11-05
 - Se sumó FullSello a última hora: ahora son **24** marcas (antes 23). Reemplaza lo dicho arriba sobre "el conjunto vigente es el de 23".
-- Logo: `material_fuente\MATERIAL ANIVERSARIO 2026\LOGOS_MARCAS_CONFIRMADAS\logo_fullsello_USUARIO_20261105.jpeg`; control: `CONTROL_LOGOS_MARCAS_2026.csv/.md` (24 participantes).
+- Logo: `material_fuente\RECURSOS_COMPARTIDOS\LOGOS_MARCAS_CONFIRMADAS\logo_fullsello_USUARIO_20261105.jpeg`; control: `CONTROL_LOGOS_MARCAS_2026.csv/.md` (24 participantes).
 - GIF de 24 y Drive: los hace Codex por el canal IA; ver `docs\ORDEN_CODEX_GIF24_DRIVE_2026-11-05.md` (en `W:\PROYECTOS CUENTA ALEJANDROG45\docs\`) y su cierre. Flyers NO actualizados (siguen con 23). Respaldo: `C:\ARCHIVO_IA\backups\gif24_2026-11-05\`.
 - Cierre 2026-11-05 (HECHO-VERIFICADO): GIF de 24 en `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\GIF_MARCAS_2026-11-05\` (SHA-256 `89EAD497E166A497640E5F326DA9887D5D4995B8C732E84493850B30FA0BA693`, igual en Drive MARCAS_CONFIRMADAS, que tiene 24 logos `logo_*`); este es el GIF vigente, los de 20 y 23 son historial. Detalle y hashes: `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\GIF_MARCAS_2026-11-05\MANIFIESTO.md`. No se hizo commit, push ni deploy.
 
 ## Informe stock/precio por marca — 2026-11-05
-- HECHO-VERIFICADO: `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\informe_stock_marcas_2026-11-05\informe_stock_marcas.html` (24 marcas, 2460 filas, datos ERP en vivo 19:37, filtro por marca e impresión por marca). Código en `informe_stock_marcas\`. Copia en Drive `11_CAMPANAS\FERIA_ANIVERSARIO_2026\INFORME_STOCK_MARCAS_2026-11-05\`. Detalle en `LEEME_RUTAS.md` (W:). No se hizo commit, push ni deploy.
+- HECHO-VERIFICADO: `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\informe_stock_marcas_2026-11-05\informe_stock_marcas.html` (24 marcas, 2460 filas, datos ERP en vivo 19:37, filtro por marca e impresión por marca). Código en `informe_stock_marcas\`. Copia en Drive `11_CAMPANAS\FERIA_ANIVERSARIO_2026\INFORME_STOCK_MARCAS_2026-11-05\`. Detalle en `INDICE_MAESTRO.md` (W:). No se hizo commit, push ni deploy.
 
 ## Informe de marcas v2 — 2026-11-06
-- Ver `LEEME_RUTAS.md` (W:) sección "Informe de marcas v2". Foto con datos: solo dueño. ZIP sin datos: login Justime (diseño tipo Justime), descarga real ERP NO VERIFICADA. Descuento 10% PROVISORIO. v2 no subida a Drive. Sin commit/push/deploy; E: solo lectura.
+- Ver `INDICE_MAESTRO.md` (W:) sección "Informe de marcas v2". Foto con datos: solo dueño. ZIP sin datos: login Justime (diseño tipo Justime), descarga real ERP NO VERIFICADA. Descuento 10% PROVISORIO. v2 no subida a Drive. Sin commit/push/deploy; E: solo lectura.
 
 ## Informe de marcas v3 — entrega final 2026-11-06
-- Archivo único `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\informe_stock_marcas_2026-11-05\informe_stock_marcas.html` (login estilo Justime + "Solo entregar"; precios estáticos, stock en vivo opcional vía `informe_stock_marcas\app\servidor.ps1`, NO VERIFICADO con ERP real). Diseño aprobado por el dueño: mantenerlo. Detalle en `LEEME_RUTAS.md` (W:). Sin commit/push/deploy; contiene precios: no publicar.
-- Corrección 2026-11-06: entrada = solo botón "Entrar" (sin login ni stock en vivo); ver `LEEME_RUTAS.md` (W:).
+- Archivo único `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\OVIEDO_STUDIO_FLYERS\salidas\informe_stock_marcas_2026-11-05\informe_stock_marcas.html` (login estilo Justime + "Solo entregar"; precios estáticos, stock en vivo opcional vía `informe_stock_marcas\app\servidor.ps1`, NO VERIFICADO con ERP real). Diseño aprobado por el dueño: mantenerlo. Detalle en `INDICE_MAESTRO.md` (W:). Sin commit/push/deploy; contiene precios: no publicar.
+- Corrección 2026-11-06: entrada = solo botón "Entrar" (sin login ni stock en vivo); ver `INDICE_MAESTRO.md` (W:).
 
 ## Cierre video post aniversario — 2026-11-11
 - Carpeta `_ARCHIVO_CAMPANAS\ANIVERSARIO_2026\local\NEXUS_OVIEDO_STUDIO_V2\material\video_post_aniversario\` ordenada (ver su `MANIFIESTO.md`). Guiones v7.1/v7.2/v7.3 (video de 49,29 s) y sus MP3 en `audios_borrador\v7_49s\`: 48,68 / 45,48 / 45,96 s. 24 marcas, "noveno aniversario de Oviedo Ferreterías El Manzano" al abrir y cerrar; pronunciación: Hiundái, eme te ese, Fe-mo-glás, Wéser (con w).
 - HECHO-VERIFICADO: generación y conversión. PENDIENTE DEL DUEÑO: escuchar, elegir versión y, si quiere, ajustar v7.2/v7.3 al largo exacto con ffmpeg. Drive: carpeta "Oviedo Studio - Audios". Sin commit, push ni deploy (la carpeta salidas\ está fuera de git).
-- APROBADO por el dueño 2026-11-11: las tres versiones v7 (guion y audio) se usarán las tres. No existe video de 49,29 s: era solo el largo objetivo del audio; el audio se adaptará después al video original (88,96 s, intacto). Cierre documentado en Drive, GitHub (docs/) y `LEEME_RUTAS.md`.
+- APROBADO por el dueño 2026-11-11: las tres versiones v7 (guion y audio) se usarán las tres. No existe video de 49,29 s: era solo el largo objetivo del audio; el audio se adaptará después al video original (88,96 s, intacto). Cierre documentado en Drive, GitHub (docs/) y `INDICE_MAESTRO.md`.
